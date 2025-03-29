@@ -77,3 +77,9 @@ source("10_fonction_csv_lepido_final.R")
 # 16) Créer le fichier csv "lepido_final.csv"
 ##Le chemin d'accès à entrer correspond au chemin jusqu'au fichier lepido_final.csv qui devrait être dans le dossier Projet_final
 ecrire_lepido_final("C:/Users/marbe/Desktop/UdeS Hiver 2025/Méthodes en écologie computationnelle/Projet_final/lepido_final.csv")
+
+
+
+
+
+#Test test git coucou!!

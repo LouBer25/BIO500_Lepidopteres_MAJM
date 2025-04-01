@@ -79,7 +79,7 @@ source("10_fonction_csv_lepido_final.R")
 ecrire_lepido_final("C:/Users/marbe/Desktop/UdeS Hiver 2025/Méthodes en écologie computationnelle/Projet_final/lepido_final.csv")
 
 
-
+#patate
 
 
 #Test test git coucou!!

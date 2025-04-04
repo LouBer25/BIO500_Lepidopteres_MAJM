@@ -1,5 +1,7 @@
 # 1) Set Working Directory au dossier "Projet_final", ou exécuter la fonction suivante :
 setwd("C:/Users/marbe/Desktop/UdeS Hiver 2025/Méthodes en écologie computationnelle/Projet_final")
+#connexion Maïté
+setwd("C:/Users/alex/OneDrive - USherbrooke/École/Hiver_2025/Écologie Computationnelle/BIO500_Lepidopteres_MAJM/Projet_final")
 
 # 2) Ouverture de la librairie SQL
 library(RSQLite)
@@ -127,12 +129,48 @@ test_test
 dbDisconnect(con)
 
 
+################################################################
+#connexion Maïté
+setwd("C:/Users/alex/OneDrive - USherbrooke/École/Hiver_2025/Écologie Computationnelle/BIO500_Lepidopteres_MAJM/Projet_final")
+
+# 2) Ouverture de la librairie SQL
+library(RSQLite)
+
+# 3) Connection au language SQLà la base de données
+con <- dbConnect(SQLite(), dbname="donnee.db")
+
+# Requêtes
+
+# 1) Analyse de la distribution nord-sud des espèces en diagramme à moustache
+distribution <- "
+WITH coordo AS(
+	SELECT lat
+	FROM coordonnee
+),
+dat AS(
+	SELECT year_obs
+	FROM date
+)
+SELECT *
+FROM observation
+JOIN observation ON date = dat
+JOIN observation ON coordonnee = coordo;"
+
+requete1 <- dbSendQuery(con, distribution)
+requete1
+# problèmes dans la dernière partie quels champs et quelles tables on doit joindre ensemble?
 
 
+# 2) Le nombre d'espèce par année
 
+richesse <- "
+SELECT dwc_event_date.date, observed_scientific_name.taxonomie
+FROM observation
+LIMIT 10;
+"
+richesse <- dbSendQuery(con, richesse)
 
-
-
+richesse
 
 
 

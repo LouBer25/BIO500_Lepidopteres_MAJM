@@ -30,13 +30,22 @@ source <- function(chemin_acces){
 	return(res.2.source)
 }
 
-####Création du dataframe coordonnée
-coordonnee <- function(chemin_acces){
+####Création du dataframe latitude
+latitude <- function(chemin_acces){
 	lepidopteres_final <- read.csv("lepido_final.csv")
-	res.1.coordonnee <- subset(lepidopteres_final, select = c(lat, lon))
-	res.2.coordonnee <- unique(res.1.coordonnee)
-	write.csv(res.2.coordonnee, file="coordonnee.csv")
-	return(res.2.coordonnee)
+	res.1.latitude <- subset(lepidopteres_final, select = c(lat))
+	res.2.latitude <- unique(res.1.latitude)
+	write.csv(res.2.latitude, file="latitude.csv")
+	return(res.2.latitude)
+}
+
+####Création du dataframe longitude
+longitude <- function(chemin_acces){
+	lepidopteres_final <- read.csv("lepido_final.csv")
+	res.1.longitude <- subset(lepidopteres_final, select = c(lon))
+	res.2.longitude <- unique(res.1.longitude)
+	write.csv(res.2.longitude, file="longitude.csv")
+	return(res.2.longitude)
 }
 
 ####Création du dataframe abbondance

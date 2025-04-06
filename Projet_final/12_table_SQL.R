@@ -1,7 +1,5 @@
+SQL_table <- function(chemin_acces){
 # 1) Set Working Directory au dossier "Projet_final", ou exécuter la fonction suivante :
-setwd("C:/Users/marbe/Desktop/UdeS Hiver 2025/Méthodes en écologie computationnelle/Projet_final")
-#connexion Maïté
-setwd("C:/Users/alex/OneDrive - USherbrooke/École/Hiver_2025/Écologie Computationnelle/BIO500_Lepidopteres_MAJM/Projet_final")
 
 # 2) Ouverture de la librairie SQL
 library(RSQLite)
@@ -107,13 +105,13 @@ dbSendQuery(con, creer_observation)
 source("11_fonction_creation_donnees.R")
 
 # 11) Assignation des données
-donnee_espece <- espece("/Projet_final")
-donnee_date <- date("/Projet_final")
-donnee_source <- source("/Projet_final")
-donnee_abbondance <- abbondance("/Projet_final")
-donnee_latitude <- latitude("/Projet_final")
-donnee_longitude <- longitude("/Projet_final")
-donnee_observation <- observation("/Projet_final")
+donnee_espece <- espece(getwd())
+donnee_date <- date(getwd())
+donnee_source <- source(getwd())
+donnee_abbondance <- abbondance(getwd())
+donnee_latitude <- latitude(getwd())
+donnee_longitude <- longitude(getwd())
+donnee_observation <- observation(getwd())
 
 # 12) Injection des données dans les tables
 dbWriteTable(con, append = TRUE, name = "espece", value = donnee_espece, row.names = FALSE)
@@ -124,59 +122,4 @@ dbWriteTable(con, append = TRUE, name = "latitude", value = donnee_coordonnee, r
 dbWriteTable(con, append = TRUE, name = "longitude", value = donnee_coordonnee, row.names = FALSE)
 dbWriteTable(con, append = TRUE, name = "observation", value = donnee_observation, row.names = FALSE)
 
-
-test <- "
-	SELECT id
-	FROM observation
-	LIMIT 4;
-"
-
-test_test <- dbGetQuery(con, test)
-test_test
-
-# 13) Fermeture de la session
-dbDisconnect(con)
-
-
-################################################################
-#connexion Maïté
-setwd("C:/Users/alex/OneDrive - USherbrooke/École/Hiver_2025/Écologie Computationnelle/BIO500_Lepidopteres_MAJM/Projet_final")
-
-# 2) Ouverture de la librairie SQL
-library(RSQLite)
-
-# 3) Connection au language SQLà la base de données
-con <- dbConnect(SQLite(), dbname="donnee.db")
-
-# Requêtes
-
-# 1) Analyse de la distribution nord-sud des espèces en diagramme à moustache
-distribution <- "
-WITH coordo AS(
-	SELECT lat
-	FROM coordonnee
-),
-dat AS(
-	SELECT year_obs
-	FROM date
-)
-SELECT *
-FROM observation
-JOIN observation ON date = dat
-JOIN observation ON coordonnee = coordo;"
-
-requete1 <- dbSendQuery(con, distribution)
-requete1
-# problèmes dans la dernière partie quels champs et quelles tables on doit joindre ensemble?
-
-
-# 2) Le nombre d'espèce par année
-
-richesse <- "
-SELECT dwc_event_date.date, observed_scientific_name.taxonomie
-FROM observation
-LIMIT 10;
-"
-richesse <- dbSendQuery(con, richesse)
-
-richesse
+}

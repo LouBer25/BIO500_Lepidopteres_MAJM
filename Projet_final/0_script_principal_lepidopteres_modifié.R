@@ -72,19 +72,19 @@ lepido_new <- remplacer_obs_variable(lepido_new)
 
 # 12) Exécutez la fonction suivante pour générer la base de données sur les espèces
 ##Le chemin d'accès à entrer correspond au chemin jusqu'au fichier taxonomie.csv directement qui devrait être dans le dossier Projet_final
-taxonomie_BD <- read.csv("../Projet final/taxonomie_test.csv")
+taxonomie_BD <- read.csv("../taxonomie_test.csv")
 
 # 13) Ajoute le code itis au tableau taxonomie
 ##Le chemin d'accès à entrer correspond au chemin jusqu'au fichier taxonomie_BD.csv créer précédemment qui devrait être dans le dossier Projet_final
-taxonomie_table <- tableau_taxonomie("../Projet_final")
+taxonomie_table <- tableau_taxonomie("..")
 
 # 14) Ajoute le code itis au tableau lepido_new
 ##Le chemin d'accès à entrer correspond au chemin jusqu'au dossier Projet_final créer précédemment
-lepido_new <- colonne_itis("../Projet_final")
+lepido_new <- colonne_itis(getwd())
 
 # 15) Ouvrir la source pour écrire le fichier csv "lepido_final.csv"
 source("10_fonction_csv_lepido_final.R")
 
 # 16) Créer le fichier csv "lepido_final.csv"
 ##Le chemin d'accès à entrer correspond au chemin jusqu'au fichier lepido_final.csv qui devrait être dans le dossier Projet_final
-ecrire_lepido_final("../Projet_final/lepido_final.csv")
+ecrire_lepido_final("./lepido_final.csv")

@@ -29,7 +29,7 @@ library(readr)
 
 
 # 4) Set Working Directory au dossier "Projet_final", ou exécuter la fonction suivante :
-setwd("C:/Users/marbe/Desktop/UdeS Hiver 2025/Méthodes en écologie computationnelle/BIO500_Lepidopteres_MAJM")
+setwd("C:/Users/Alex/Desktop/test")
 
 
 # 5) Exécutez les fonctions suivantes pour charger les fonctions qui seront utiles pour nettoyer les données.
@@ -88,3 +88,20 @@ source("10_fonction_csv_lepido_final.R")
 # 16) Créer le fichier csv "lepido_final.csv"
 ##Le chemin d'accès à entrer correspond au chemin jusqu'au fichier lepido_final.csv qui devrait être dans le dossier Projet_final
 ecrire_lepido_final("./lepido_final.csv")
+
+#17) 
+
+source("12_table_SQL.R")
+
+  SQL_table("..")
+  
+  test <- "SELECT*FROM observation LIMIT 10;"
+
+  test_test <- dbSendQuery(con, test)
+
+  print(test_test)
+  
+  dbDisconnect(con)
+
+
+

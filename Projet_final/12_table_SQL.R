@@ -1,5 +1,4 @@
 SQL_table <- function(chemin_acces){
-# 1) Set Working Directory au dossier "Projet_final", ou exécuter la fonction suivante :
 
 # 2) Ouverture de la librairie SQL
 library(RSQLite)
@@ -64,8 +63,8 @@ dbSendQuery(con, creer_source)
 # 8) Création de la table abbondance
 creer_abbondance <-
 	"CREATE TABLE abbondance (
-		obs_variable	VARCHAR(100),
-		PRIMARY KEY (obs_variable)
+		obs_value	VARCHAR(100),
+		PRIMARY KEY (obs_value)
 	);"
 dbSendQuery(con, creer_abbondance)
 
@@ -85,10 +84,10 @@ dbSendQuery(con, creer_longitude)
 # 10) Création de la table observation
 creer_observation <- 
 	"CREATE TABLE observation (
-		id_observation   INTEGER AUTOINCREMENT,
+		id_observation   INTEGER,
 		observed_scientific_name	VARCHAR(100),
 		dwc_event_date 		TIMESTAMP(20) NOT NULL,
-		obs_variable  VARCHAR(100),
+		obs_value  VARCHAR(100),
 		lat	INTEGER,
 		lon INTEGER,
 		title	VARCHAR(100),
@@ -96,7 +95,7 @@ creer_observation <-
 		FOREIGN KEY (observed_scientific_name) REFERENCES espece(observed_scientific_name),
 		FOREIGN KEY (dwc_event_date) REFERENCES date(dwc_event_date),
 		FOREIGN KEY (title) REFERENCES source(title),
-		FOREIGN KEY (obs_variable) REFERENCES abbondance(obs_variable),
+		FOREIGN KEY (obs_value) REFERENCES abbondance(obs_value),
 		FOREIGN KEY (lat) REFERENCES latitude(lat),
 		FOREIGN KEY (lon) REFERENCES longitude(lon)
 	);"

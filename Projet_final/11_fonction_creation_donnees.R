@@ -60,7 +60,8 @@ abbondance <- function(chemin_acces){
 ####Création du dataframe observation
 observation <- function(chemin_acces){
 	lepidopteres_final <- read.csv("lepido_final.csv")
-	res.1.observation <- subset(lepidopteres_final, select = c(observed_scientific_name, dwc_event_date, title, obs_value, lat, lon))
+	lepidopteres_final$id_observation <- 1:nrow(lepidopteres_final)
+	res.1.observation <- subset(lepidopteres_final, select = c(observed_scientific_name, dwc_event_date, title, obs_value, lat, lon, id_observation))
 	write.csv(res.1.observation, file="observation.csv")
 	return(res.1.observation)
 }

@@ -76,12 +76,12 @@ creer_latitude <-
   "CREATE TABLE latitude <- 
   lat REAL PRIMARY KEY,
   );"
+dbSendQuery(con, creer_latitude)
 
 creer_longitude <- 
   "CREATE TABLE longitude <-
   lat REAL PRIMARY KEY,
   );"
-dbSendQuery(con, creer_latitude)
 dbSendQuery(con, creer_longitude)
 
 # 10) Création de la table observation
@@ -93,7 +93,7 @@ creer_observation <-
 		latitude	INTEGER,
 		longitude INTEGER,
 		source	VARCHAR(100),
-		PRIMARY KEY (taxonomie, date, abbondance)
+		PRIMARY KEY (taxonomie, date, abbondance, latitude, longitude)
 		FOREIGN KEY (taxonomie) REFERENCES espece(observed_scientific_name),
 		FOREIGN KEY (date) REFERENCES date(dwc_event_date),
 		FOREIGN KEY (source) REFERENCES source(title),
@@ -103,7 +103,7 @@ creer_observation <-
 	);"
 dbSendQuery(con, creer_observation)
 
-# 11) Ouverture de la fonction pour la création de donnée
+# 11) Ouverture de la fonction pour la création de données
 source("11_fonction_creation_donnees.R")
 
 # 11) Assignation des données
@@ -113,7 +113,6 @@ donnee_source <- source("/Projet_final")
 donnee_abbondance <- abbondance("/Projet_final")
 donnee_latitude <- latitude("/Projet_final")
 donnee_longitude <- longitude("/Projet_final")
-#donnee_coordonnee <- coordonnee("/Projet_final")
 donnee_observation <- observation("/Projet_final")
 
 # 12) Injection des données dans les tables
@@ -123,7 +122,6 @@ dbWriteTable(con, append = TRUE, name = "source", value = donnee_source, row.nam
 dbWriteTable(con, append = TRUE, name = "abbondance", value = donnee_abbondance, row.names = FALSE)
 dbWriteTable(con, append = TRUE, name = "latitude", value = donnee_coordonnee, row.names = FALSE)
 dbWriteTable(con, append = TRUE, name = "longitude", value = donnee_coordonnee, row.names = FALSE)
-#dbWriteTable(con, append = TRUE, name = "coordonnee", value = donnee_coordonnee, row.names = FALSE)
 dbWriteTable(con, append = TRUE, name = "observation", value = donnee_observation, row.names = FALSE)
 
 

@@ -14,7 +14,8 @@ dbSendQuery(con, "DROP TABLE IF EXISTS espece;")
 dbSendQuery(con, "DROP TABLE IF EXISTS date;")
 dbSendQuery(con, "DROP TABLE IF EXISTS source;")
 dbSendQuery(con, "DROP TABLE IF EXISTS abbondance;")
-dbSendQuery(con, "DROP TABLE IF EXISTS coordonnee;")
+dbSendQuery(con, "DROP TABLE IF EXISTS latitude;")
+dbSendQuery(con, "DROP TABLE IF EXISTS longitude;")
 dbSendQuery(con, "DROP TABLE IF EXISTS observation;")
 
 # 5) Création de la table espèces
@@ -70,29 +71,35 @@ creer_abbondance <-
 	);"
 dbSendQuery(con, creer_abbondance)
 
-# 9) Création de la table coordonnee
-creer_coordonnee <-
-	"CREATE TABLE coordonnee (
-		lat	DOUBLE,
-		lon	DOUBLE,
-		PRIMARY KEY(lat, lon)
-	);"
-dbSendQuery(con, creer_coordonnee)
+# 9) Création de la table latitude et longitude
+creer_latitude <- 
+  "CREATE TABLE latitude <- 
+  lat REAL PRIMARY KEY,
+  );"
+
+creer_longitude <- 
+  "CREATE TABLE longitude <-
+  lat REAL PRIMARY KEY,
+  );"
+dbSendQuery(con, creer_latitude)
+dbSendQuery(con, creer_longitude)
 
 # 10) Création de la table observation
 creer_observation <- 
 	"CREATE TABLE observation (
 		taxonomie	VARCHAR(100),
 		date 		TIMESTAMP(20) NOT NULL,
-		source	VARCHAR(100),
 		abbondance  VARCHAR(100),
-		coordonnee	DOUBLE,
-		PRIMARY KEY (taxonomie, date, source, abbondance, coordonnee)
-		FOREIGN KEY (taxonomie) REFERENCES taxonomie(observed_scientific_name),
+		latitude	INTEGER,
+		longitude INTEGER,
+		source	VARCHAR(100),
+		PRIMARY KEY (taxonomie, date, abbondance)
+		FOREIGN KEY (taxonomie) REFERENCES espece(observed_scientific_name),
 		FOREIGN KEY (date) REFERENCES date(dwc_event_date),
 		FOREIGN KEY (source) REFERENCES source(title),
 		FOREIGN KEY (abbondance) REFERENCES abbondance(obs_value),
-		FOREIGN KEY (coordonnee) REFERENCES coordonnee(lat, lon)
+		FOREIGN KEY (latitude) REFERENCES latitude(lat),
+		FOREIGN KEY (longitude) REFERENCES longitude(lon),
 	);"
 dbSendQuery(con, creer_observation)
 
@@ -100,24 +107,28 @@ dbSendQuery(con, creer_observation)
 source("11_fonction_creation_donnees.R")
 
 # 11) Assignation des données
-donnee_espece <- espece("C:/Users/marbe/Desktop/UdeS Hiver 2025/Méthodes en écologie computationnelle/Projet_final")
-donnee_date <- date("C:/Users/marbe/Desktop/UdeS Hiver 2025/Méthodes en écologie computationnelle/Projet_final")
-donnee_source <- source("C:/Users/marbe/Desktop/UdeS Hiver 2025/Méthodes en écologie computationnelle/Projet_final")
-donnee_abbondance <- abbondance("C:/Users/marbe/Desktop/UdeS Hiver 2025/Méthodes en écologie computationnelle/Projet_final")
-donnee_coordonnee <- coordonnee("C:/Users/marbe/Desktop/UdeS Hiver 2025/Méthodes en écologie computationnelle/Projet_final")
-donnee_observation <- observation("C:/Users/marbe/Desktop/UdeS Hiver 2025/Méthodes en écologie computationnelle/Projet_final")
+donnee_espece <- espece("/Projet_final")
+donnee_date <- date("/Projet_final")
+donnee_source <- source("/Projet_final")
+donnee_abbondance <- abbondance("/Projet_final")
+donnee_latitude <- latitude("/Projet_final")
+donnee_longitude <- longitude("/Projet_final")
+#donnee_coordonnee <- coordonnee("/Projet_final")
+donnee_observation <- observation("/Projet_final")
 
 # 12) Injection des données dans les tables
 dbWriteTable(con, append = TRUE, name = "espece", value = donnee_espece, row.names = FALSE)
 dbWriteTable(con, append = TRUE, name = "date", value = donnee_date, row.names = FALSE)
 dbWriteTable(con, append = TRUE, name = "source", value = donnee_source, row.names = FALSE)
 dbWriteTable(con, append = TRUE, name = "abbondance", value = donnee_abbondance, row.names = FALSE)
-dbWriteTable(con, append = TRUE, name = "coordonnee", value = donnee_coordonnee, row.names = FALSE)
+dbWriteTable(con, append = TRUE, name = "latitude", value = donnee_coordonnee, row.names = FALSE)
+dbWriteTable(con, append = TRUE, name = "longitude", value = donnee_coordonnee, row.names = FALSE)
+#dbWriteTable(con, append = TRUE, name = "coordonnee", value = donnee_coordonnee, row.names = FALSE)
 dbWriteTable(con, append = TRUE, name = "observation", value = donnee_observation, row.names = FALSE)
 
 
 test <- "
-	SELECT *
+	SELECT id
 	FROM observation
 	LIMIT 4;
 "
@@ -171,7 +182,3 @@ LIMIT 10;
 richesse <- dbSendQuery(con, richesse)
 
 richesse
-
-
-
-

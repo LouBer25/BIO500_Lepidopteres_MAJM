@@ -29,10 +29,11 @@ library(readr)
 
 
 # 4) Set Working Directory au dossier "Projet_final", ou exécuter la fonction suivante :
-setwd("C:/Users/marbe/Desktop/UdeS Hiver 2025/Méthodes en écologie computationnelle/Projet_final")
+setwd("C:/Users/marbe/Desktop/UdeS Hiver 2025/Méthodes en écologie computationnelle/BIO500_Lepidopteres_MAJM")
 
 
 # 5) Exécutez les fonctions suivantes pour charger les fonctions qui seront utiles pour nettoyer les données.
+setwd("./Projet_final")
 source("1_fonction_BD.R")
 source("3_fonction_formats_temporels.R")
 source("4_fonction_coordo_geographiques.R")
@@ -45,7 +46,7 @@ source("9_fonction_itis_lepido.R")
 
 # 6) Exécutez la fonction suivante pour générer la base de données.
 ##Le chemin d'accès à entrer correspond au chemin jusqu'au dossier Lepidopteres_BD créer précédemment
-lepido_BD <- Lepidopteres_BD("C:/Users/marbe/Desktop/UdeS Hiver 2025/Méthodes en écologie computationnelle/Projet_final/Lepidopteres_BD")
+lepido_BD <- Lepidopteres_BD("./Lepidopteres_BD")
 
 
 
@@ -67,23 +68,23 @@ lepido_new <- convertir_types(lepido_new)   #fonctionne, mais à retravailler: d
 
 # 11) Exécutez cette fonction qui remplace la valeur textuelle de la colonne obs_variable en valeur numérique
 ##Besoin du package "dplyr" pour exécuter cette fonction
-lepido_new <- obs_variable(lepido_new)
+lepido_new <- remplacer_obs_variable(lepido_new)
 
 # 12) Exécutez la fonction suivante pour générer la base de données sur les espèces
 ##Le chemin d'accès à entrer correspond au chemin jusqu'au fichier taxonomie.csv directement qui devrait être dans le dossier Projet_final
-taxonomie_BD <- read.csv("C:/Users/marbe/Desktop/UdeS Hiver 2025/Méthodes en écologie computationnelle/Projet_final/taxonomie_test.csv")
+taxonomie_BD <- read.csv("../taxonomie_test.csv")
 
 # 13) Ajoute le code itis au tableau taxonomie
 ##Le chemin d'accès à entrer correspond au chemin jusqu'au fichier taxonomie_BD.csv créer précédemment qui devrait être dans le dossier Projet_final
-taxonomie_table <- tableau_taxonomie("C:/Users/marbe/Desktop/UdeS Hiver 2025/Méthodes en écologie computationnelle/Projet_final")
+taxonomie_table <- tableau_taxonomie("..")
 
 # 14) Ajoute le code itis au tableau lepido_new
 ##Le chemin d'accès à entrer correspond au chemin jusqu'au dossier Projet_final créer précédemment
-lepido_new <- colonne_itis("C:/Users/marbe/Desktop/UdeS Hiver 2025/Méthodes en écologie computationnelle/Projet_final")
+lepido_new <- colonne_itis(getwd())
 
 # 15) Ouvrir la source pour écrire le fichier csv "lepido_final.csv"
 source("10_fonction_csv_lepido_final.R")
 
 # 16) Créer le fichier csv "lepido_final.csv"
 ##Le chemin d'accès à entrer correspond au chemin jusqu'au fichier lepido_final.csv qui devrait être dans le dossier Projet_final
-ecrire_lepido_final("C:/Users/marbe/Desktop/UdeS Hiver 2025/Méthodes en écologie computationnelle/Projet_final/lepido_final.csv")
+ecrire_lepido_final("./lepido_final.csv")

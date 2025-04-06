@@ -64,21 +64,21 @@ dbSendQuery(con, creer_source)
 # 8) Création de la table abbondance
 creer_abbondance <-
 	"CREATE TABLE abbondance (
-		obs_value	VARCHAR(100),
-		PRIMARY KEY (obs_value)
+		obs_variable	VARCHAR(100),
+		PRIMARY KEY (obs_variable)
 	);"
 dbSendQuery(con, creer_abbondance)
 
 # 9) Création de la table latitude et longitude
 creer_latitude <- 
-  "CREATE TABLE latitude <- 
-  lat REAL PRIMARY KEY,
+  "CREATE TABLE latitude (
+  lat REAL PRIMARY KEY
   );"
 dbSendQuery(con, creer_latitude)
 
 creer_longitude <- 
-  "CREATE TABLE longitude <-
-  lat REAL PRIMARY KEY,
+  "CREATE TABLE longitude (
+  lon REAL PRIMARY KEY
   );"
 dbSendQuery(con, creer_longitude)
 
@@ -95,9 +95,9 @@ creer_observation <-
 		FOREIGN KEY (taxonomie) REFERENCES espece(observed_scientific_name),
 		FOREIGN KEY (date) REFERENCES date(dwc_event_date),
 		FOREIGN KEY (source) REFERENCES source(title),
-		FOREIGN KEY (abbondance) REFERENCES abbondance(obs_value),
+		FOREIGN KEY (abbondance) REFERENCES abbondance(obs_variable),
 		FOREIGN KEY (latitude) REFERENCES latitude(lat),
-		FOREIGN KEY (longitude) REFERENCES longitude(lon),
+		FOREIGN KEY (longitude) REFERENCES longitude(lon)
 	);"
 dbSendQuery(con, creer_observation)
 
@@ -118,8 +118,8 @@ dbWriteTable(con, append = TRUE, name = "espece", value = donnee_espece, row.nam
 dbWriteTable(con, append = TRUE, name = "date", value = donnee_date, row.names = FALSE)
 dbWriteTable(con, append = TRUE, name = "source", value = donnee_source, row.names = FALSE)
 dbWriteTable(con, append = TRUE, name = "abbondance", value = donnee_abbondance, row.names = FALSE)
-dbWriteTable(con, append = TRUE, name = "latitude", value = donnee_coordonnee, row.names = FALSE)
-dbWriteTable(con, append = TRUE, name = "longitude", value = donnee_coordonnee, row.names = FALSE)
+dbWriteTable(con, append = TRUE, name = "latitude", value = donnee_latitude, row.names = FALSE)
+dbWriteTable(con, append = TRUE, name = "longitude", value = donnee_longitude, row.names = FALSE)
 dbWriteTable(con, append = TRUE, name = "observation", value = donnee_observation, row.names = FALSE)
 
 }

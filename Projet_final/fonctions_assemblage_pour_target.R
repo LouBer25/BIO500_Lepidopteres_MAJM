@@ -63,8 +63,7 @@ assemblage_donnees <- function(chemin_acces){
 
 
 # 3) Création des tables SQL et injection des donnnées
-
-creation_SQL <- function(){
+creation_SQL <- function(chemin_acces){
 
   # a) Connection au language SQL
   con <- dbConnect(SQLite(), dbname="donnee.db")
@@ -168,13 +167,13 @@ creation_SQL <- function(){
   source("11_fonction_creation_donnees.R")
 
   # k) Assignation des données
-  donnee_espece <- espece(getwd())
-  donnee_date <- date(getwd())
-  donnee_source <- source(getwd())
-  donnee_abbondance <- abbondance(getwd())
-  donnee_latitude <- latitude(getwd())
-  donnee_longitude <- longitude(getwd())
-  donnee_observation <- observation(getwd())
+  donnee_espece <- espece(chemin_acces)
+  donnee_date <- date(chemin_acces)
+  donnee_source <- source(chemin_acces)
+  donnee_abbondance <- abbondance(chemin_acces)
+  donnee_latitude <- latitude(chemin_acces)
+  donnee_longitude <- longitude(chemin_acces)
+  donnee_observation <- observation(chemin_acces)
 
   # l) Injection des données dans les tables
   dbWriteTable(con, append = TRUE, name = "espece", value = donnee_espece, row.names = FALSE)
@@ -187,3 +186,4 @@ creation_SQL <- function(){
 }
 
 # 4) Requêtes SQL
+

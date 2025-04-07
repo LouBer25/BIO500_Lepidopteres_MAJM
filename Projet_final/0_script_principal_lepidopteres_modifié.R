@@ -23,7 +23,7 @@ library(readr)
 
 
 # 2) Set Working Directory au dossier "BIO500_Lepidopteres_MAJM", ou exécuter la fonction suivante :
-setwd("C:/Users/marbe/Desktop/UdeS Hiver 2025/Méthodes en écologie computationnelle/BIO500_Lepidopteres_MAJM")
+setwd("C:/Users/Alex/Desktop/BIO500_Lepidopteres_MAJM")
 
 
 # 3) Exécutez les fonctions suivantes pour charger les fonctions qui seront utiles pour nettoyer les données.
@@ -199,16 +199,34 @@ dbWriteTable(con, append = TRUE, name = "latitude", value = donnee_latitude, row
 dbWriteTable(con, append = TRUE, name = "longitude", value = donnee_longitude, row.names = FALSE)
 dbWriteTable(con, append = TRUE, name = "observation", value = donnee_observation, row.names = FALSE)
 
-# 27) Requête SQL de test
-  test <- "
-	SELECT id_observation, obs_variable, observed_scientific_name
-	FROM observation
-;"
+# 27) Requête SQL qui sort le nombre d'espèces par année
+requete_nombre_especes_par_annee <- "
+  SELECT d.year_obs AS annee, COUNT(DISTINCT o.observed_scientific_name) AS nombre_especes
+  FROM observation o
+  JOIN date d ON o.dwc_event_date = d.dwc_event_date
+  GROUP BY d.year_obs
+  ORDER BY d.year_obs;
+"
 
-  test_test <- dbGetQuery(con, test)
-head(test_test)
+resultats_nombre_especes <- dbGetQuery(con, requete_nombre_especes_par_annee)
+print(resultats_nombre_especes)
 
-# 28) Déconnection de SQL
+# 28) Requête SQL qui sort les latitudes par année des trois espèce qu'on retrouve dans le plus d'année
+requete_latitude_espece <- "
+SELECT 
+strftime('%Y', o.dwc_event_date) AS annee,
+o.observed_scientific_name,
+o.lat
+FROM observation o
+WHERE o.observed_scientific_name IN (
+  'Colias philodice',
+  'Poanes hobomok',
+  'Pieris rapae'
+)
+ORDER BY annee, observed_scientific_name;
+"
+resultat_latitude_espece <- dbGetQuery(con, requete_latitude_espece)
+head(resultat_latitude_espece)
+
+# 29) Déconnection de SQL
 dbDisconnect(con)
-
-

@@ -1,0 +1,1 @@
+#focntions pour assembler les données

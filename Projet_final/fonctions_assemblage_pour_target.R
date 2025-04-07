@@ -9,6 +9,7 @@ lecture_donnees <- function(chemin_acces){
   library(future)             #Exécuter furrr
   library(readr)
   library(RSQLite)
+  library(terra)
   
   # a) Set Working Directory au dossier "BIO500_Lepidopteres_MAJM", ou exécuter la fonction suivante :
   setwd(chemin_acces)
@@ -186,4 +187,14 @@ creation_SQL <- function(chemin_acces){
 }
 
 # 4) Requêtes SQL
+### ajouter la création d'objet des valeurs retournées et la création du graphique dans les fonctions du script principal
 
+requetes_SQL <- function(?){
+  richesse_specifique(?)
+  latitude_annees(?)
+  carte(?)
+  dbDisconnect(con)
+}
+  
+  
+}

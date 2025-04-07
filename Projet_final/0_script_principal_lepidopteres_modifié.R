@@ -235,9 +235,7 @@ latitude_annees <- function(?){
   return(resultat_latitude_espece)
 }
 
-# requête pour la carte 
-install.packages("terra")
-library(terra)
+# requête pour la carte richesse par coordonnées géographiques (arrondies à l'unité) pour l'année 2020
 
 carte <- function(?){
   requete_carte <- "

@@ -170,7 +170,7 @@ creation_SQL <- function(chemin_acces){
   # k) Assignation des données
   donnee_espece <- espece(chemin_acces)
   donnee_date <- date(chemin_acces)
-  donnee_source <- source(chemin_acces)
+  donnee_source <- `source`(chemin_acces)
   donnee_abbondance <- abbondance(chemin_acces)
   donnee_latitude <- latitude(chemin_acces)
   donnee_longitude <- longitude(chemin_acces)

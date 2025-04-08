@@ -1,4 +1,5 @@
-#fonctions pour assembler les données
+# Set Working Directory au dossier "./Projet_final", ce sera votre chemin d'accès
+setwd("C:/Users/alex/OneDrive - USherbrooke/École/Hiver_2025/Écologie Computationnelle/BIO500_Lepidopteres_MAJM/Projet_final")
 
 # 1) Lecture des données et installation des librairies
 lecture_donnees <- function(chemin_acces){
@@ -11,20 +12,18 @@ lecture_donnees <- function(chemin_acces){
   library(RSQLite)
   library(terra)
   
-  # a) Set Working Directory au dossier "BIO500_Lepidopteres_MAJM", ou exécuter la fonction suivante :
+  # a) Set Working Directory au dossier "Projet_final", ou exécuter la fonction suivante :
   setwd(chemin_acces)
-
   # b) Exécutez les fonctions suivantes pour charger les fonctions qui seront utiles pour nettoyer les données.
-  setwd("./Projet_final")	#Ouvrir le Working Directory qui contient les fichiers sources des fonctions
-  source("0_script_principal_lepidopteres_modifié.R")
-  source("1_fonction_BD.R")
-  source("3_fonction_formats_temporels.R")
-  source("4_fonction_coordo_geographiques.R")
-  source("5_fonction_types_donnees.R")
-  source("6_fonction_obs_variable.R")
-  source("7_fonction_taxonomie_itis.R")
-  source("8_fonction_creation_tableau_taxonomie.R")
-  source("9_fonction_itis_lepido.R")
+  #source("scripts/0_script_principal_lepidopteres_modifié.R")
+  source("scripts/1_fonction_BD.R")
+  source("scripts/3_fonction_formats_temporels.R")
+  source("scripts/4_fonction_coordo_geographiques.R")
+  source("scripts/5_fonction_types_donnees.R")
+  source("scripts/6_fonction_obs_variable.R")
+  source("scripts/7_fonction_taxonomie_itis.R")
+  source("scripts/8_fonction_creation_tableau_taxonomie.R")
+  source("scripts/9_fonction_itis_lepido.R")
 }
 
 
@@ -32,8 +31,7 @@ lecture_donnees <- function(chemin_acces){
 # chemin_acces = "./Lepidopteres_BD"
 assemblage_donnees <- function(chemin_acces){
   setwd(chemin_acces)
-  setwd("./Projet_final")
-  
+
   # a) Générer la base de données
   setwd("./Lepidopteres_BD")
   lepido_BD <- Lepidopteres_BD(getwd())
@@ -62,7 +60,7 @@ assemblage_donnees <- function(chemin_acces){
   lepido_new <- colonne_itis(getwd())
 
   # i) Ouvrir la source pour écrire le fichier csv "lepido_final.csv"
-  source("10_fonction_csv_lepido_final.R")
+  source("scripts/10_fonction_csv_lepido_final.R")
 
   # j) Créer le fichier csv "lepido_final.csv"
   ecrire_lepido_final("./lepido_final.csv")
@@ -72,7 +70,7 @@ assemblage_donnees <- function(chemin_acces){
 # 3) Création des tables SQL et injection des donnnées
 creation_SQL <- function(chemin_acces){
   setwd(chemin_acces)
-  setwd("./Projet_final")
+  
   # a) Connection au language SQL
   con <- dbConnect(SQLite(), dbname="donnee.db")
 
@@ -172,7 +170,7 @@ creation_SQL <- function(chemin_acces){
   dbSendQuery(con, creer_observation)
 
   # j) Ouverture de la fonction pour la création de données
-  source("11_fonction_creation_donnees.R")
+  source("scripts/11_fonction_creation_donnees.R")
 
   # k) Assignation des données
   donnee_espece <- espece(getwd())
@@ -191,7 +189,6 @@ creation_SQL <- function(chemin_acces){
   dbWriteTable(con, append = TRUE, name = "latitude", value = donnee_latitude, row.names = FALSE)
   dbWriteTable(con, append = TRUE, name = "longitude", value = donnee_longitude, row.names = FALSE)
   dbWriteTable(con, append = TRUE, name = "observation", value = donnee_observation, row.names = FALSE)
-  dbDisconnect(con)
 }
 
 # 4) Requêtes SQL
@@ -199,9 +196,8 @@ creation_SQL <- function(chemin_acces){
 
 requetes_SQL <- function(chemin_acces){
   setwd(chemin_acces)
-  setwd("./Projet_final")
   # a) aller chercher les fonctions qui contiennent les requêtes
-  source("0_script_principal_lepidopteres_modifié.R")
+  source("scripts/0_script_principal_lepidopteres_modifié.R")
   
   # a) Connection au language SQL
   con <- dbConnect(SQLite(), dbname="donnee.db")
@@ -211,9 +207,9 @@ requetes_SQL <- function(chemin_acces){
   dbDisconnect(con)
 }
 
-setwd("C:/Users/alex/OneDrive - USherbrooke/École/Hiver_2025/Écologie Computationnelle/BIO500_Lepidopteres_MAJM")
+setwd("C:/Users/alex/OneDrive - USherbrooke/École/Hiver_2025/Écologie Computationnelle/BIO500_Lepidopteres_MAJM/Projet_final")
 #test
-lecture_donnees("C:/Users/alex/OneDrive - USherbrooke/École/Hiver_2025/Écologie Computationnelle/BIO500_Lepidopteres_MAJM")
-assemblage_donnees("C:/Users/alex/OneDrive - USherbrooke/École/Hiver_2025/Écologie Computationnelle/BIO500_Lepidopteres_MAJM")
-creation_SQL("C:/Users/alex/OneDrive - USherbrooke/École/Hiver_2025/Écologie Computationnelle/BIO500_Lepidopteres_MAJM")
-requetes_SQL("C:/Users/alex/OneDrive - USherbrooke/École/Hiver_2025/Écologie Computationnelle/BIO500_Lepidopteres_MAJM")
+lecture_donnees("C:/Users/alex/OneDrive - USherbrooke/École/Hiver_2025/Écologie Computationnelle/BIO500_Lepidopteres_MAJM/Projet_final")
+assemblage_donnees("C:/Users/alex/OneDrive - USherbrooke/École/Hiver_2025/Écologie Computationnelle/BIO500_Lepidopteres_MAJM/Projet_final")
+creation_SQL("C:/Users/alex/OneDrive - USherbrooke/École/Hiver_2025/Écologie Computationnelle/BIO500_Lepidopteres_MAJM/Projet_final")
+warninrequetes_SQL("C:/Users/alex/OneDrive - USherbrooke/École/Hiver_2025/Écologie Computationnelle/BIO500_Lepidopteres_MAJM/Projet_final")

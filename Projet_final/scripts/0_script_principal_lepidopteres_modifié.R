@@ -23,7 +23,7 @@ library(readr)
 
 
 # 2) Set Working Directory au dossier "BIO500_Lepidopteres_MAJM", ou exécuter la fonction suivante :
-setwd("C:/Users/alex/OneDrive - USherbrooke/École/Hiver_2025/Écologie Computationnelle/BIO500_Lepidopteres_MAJM")
+#setwd("C:/Users/alex/OneDrive - USherbrooke/École/Hiver_2025/Écologie Computationnelle/BIO500_Lepidopteres_MAJM")
 
 # 3) Exécutez les fonctions suivantes pour charger les fonctions qui seront utiles pour nettoyer les données.
 setwd("./Projet_final")	#Ouvrir le Working Directory qui contient les fichiers sources des fonctions

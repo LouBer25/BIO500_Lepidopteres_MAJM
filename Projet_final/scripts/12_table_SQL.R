@@ -102,6 +102,8 @@ creer_observation <-
 dbSendQuery(con, creer_observation)
 
 # 11) Ouverture de la fonction pour la création de données
+setwd(chemin_acces)
+setwd("./scripts")
 source("11_fonction_creation_donnees.R")
 
 # 11) Assignation des données

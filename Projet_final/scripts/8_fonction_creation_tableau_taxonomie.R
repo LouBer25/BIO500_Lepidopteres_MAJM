@@ -2,6 +2,7 @@
 
 tableau_taxonomie <- function(chemin_acces){
 	setwd(chemin_acces)
+  setwd("./tables_pour_SQL")
 	if (file.exists("taxonomie_BD.csv")){
 		print ("Le document taxonomie_BD existe déjà dans le répertoire")
 	}else{

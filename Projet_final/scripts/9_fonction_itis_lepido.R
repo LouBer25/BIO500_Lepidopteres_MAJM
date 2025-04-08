@@ -2,6 +2,7 @@
 
 colonne_itis <- function(chemin_acces){
 	setwd(chemin_acces)
+  setwd("./tables_pour_SQL")
 	taxonomie_itis <- read.csv("taxonomie_BD.csv")
 	lepido_new <- lepido_new %>%
   	left_join(

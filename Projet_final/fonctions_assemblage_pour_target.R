@@ -16,6 +16,7 @@ lecture_donnees <- function(chemin_acces){
 
   # b) Exécutez les fonctions suivantes pour charger les fonctions qui seront utiles pour nettoyer les données.
   setwd("./Projet_final")	#Ouvrir le Working Directory qui contient les fichiers sources des fonctions
+  source("0_script_principal_lepidopteres_modifié.R")
   source("1_fonction_BD.R")
   source("3_fonction_formats_temporels.R")
   source("4_fonction_coordo_geographiques.R")
@@ -26,12 +27,16 @@ lecture_donnees <- function(chemin_acces){
   source("9_fonction_itis_lepido.R")
 }
 
+
 # 2) Assemblage et nettoyage des données
 # chemin_acces = "./Lepidopteres_BD"
 assemblage_donnees <- function(chemin_acces){
+  setwd(chemin_acces)
+  setwd("./Projet_final")
   
   # a) Générer la base de données
-  lepido_BD <- Lepidopteres_BD(chemin_acces)
+  setwd("./Lepidopteres_BD")
+  lepido_BD <- Lepidopteres_BD(getwd())
 
   # b) Détecter et corriger les formats temporels
   lepido_new <- corriger_dates(lepido_BD)
@@ -41,6 +46,7 @@ assemblage_donnees <- function(chemin_acces){
 
   # d) Convertir les données dans les bons types de données
   lepido_new <- convertir_types(lepido_new)
+  lepido_new <- return(lepido_new) #ajout sinon la fonction suivante ne le prennait pas
 
   # e) Remplace la valeur textuelle de la colonne obs_variable en valeur numérique
   ##Besoin du package "dplyr" pour exécuter cette fonction
@@ -65,7 +71,8 @@ assemblage_donnees <- function(chemin_acces){
 
 # 3) Création des tables SQL et injection des donnnées
 creation_SQL <- function(chemin_acces){
-
+  setwd(chemin_acces)
+  setwd("./Projet_final")
   # a) Connection au language SQL
   con <- dbConnect(SQLite(), dbname="donnee.db")
 
@@ -168,13 +175,13 @@ creation_SQL <- function(chemin_acces){
   source("11_fonction_creation_donnees.R")
 
   # k) Assignation des données
-  donnee_espece <- espece(chemin_acces)
-  donnee_date <- date(chemin_acces)
-  donnee_source <- `source`(chemin_acces)
-  donnee_abbondance <- abbondance(chemin_acces)
-  donnee_latitude <- latitude(chemin_acces)
-  donnee_longitude <- longitude(chemin_acces)
-  donnee_observation <- observation(chemin_acces)
+  donnee_espece <- espece(getwd())
+  donnee_date <- date(getwd())
+  donnee_source <- `source`(getwd())
+  donnee_abbondance <- abbondance(getwd())
+  donnee_latitude <- latitude(getwd())
+  donnee_longitude <- longitude(getwd())
+  donnee_observation <- observation(getwd())
 
   # l) Injection des données dans les tables
   dbWriteTable(con, append = TRUE, name = "espece", value = donnee_espece, row.names = FALSE)
@@ -184,17 +191,29 @@ creation_SQL <- function(chemin_acces){
   dbWriteTable(con, append = TRUE, name = "latitude", value = donnee_latitude, row.names = FALSE)
   dbWriteTable(con, append = TRUE, name = "longitude", value = donnee_longitude, row.names = FALSE)
   dbWriteTable(con, append = TRUE, name = "observation", value = donnee_observation, row.names = FALSE)
+  dbDisconnect(con)
 }
 
 # 4) Requêtes SQL
 ### ajouter la création d'objet des valeurs retournées et la création du graphique dans les fonctions du script principal
 
-requetes_SQL <- function(?){
-  richesse_specifique(?)
-  latitude_annees(?)
-  carte(?)
+requetes_SQL <- function(chemin_acces){
+  setwd(chemin_acces)
+  setwd("./Projet_final")
+  # a) aller chercher les fonctions qui contiennent les requêtes
+  source("0_script_principal_lepidopteres_modifié.R")
+  
+  # a) Connection au language SQL
+  con <- dbConnect(SQLite(), dbname="donnee.db")
+  richesse_specifique(chemin_acces)
+  latitude_annees()
+  carte()
   dbDisconnect(con)
 }
-  
-  
-}
+
+setwd("C:/Users/alex/OneDrive - USherbrooke/École/Hiver_2025/Écologie Computationnelle/BIO500_Lepidopteres_MAJM")
+#test
+lecture_donnees("C:/Users/alex/OneDrive - USherbrooke/École/Hiver_2025/Écologie Computationnelle/BIO500_Lepidopteres_MAJM")
+assemblage_donnees("C:/Users/alex/OneDrive - USherbrooke/École/Hiver_2025/Écologie Computationnelle/BIO500_Lepidopteres_MAJM")
+creation_SQL("C:/Users/alex/OneDrive - USherbrooke/École/Hiver_2025/Écologie Computationnelle/BIO500_Lepidopteres_MAJM")
+requetes_SQL("C:/Users/alex/OneDrive - USherbrooke/École/Hiver_2025/Écologie Computationnelle/BIO500_Lepidopteres_MAJM")

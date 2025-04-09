@@ -199,17 +199,16 @@ requetes_SQL <- function(chemin_acces){
   # a) aller chercher les fonctions qui contiennent les requêtes
   source("scripts/0_script_principal_lepidopteres_modifié.R")
   
-  # a) Connection au language SQL
+  # b) Connection au language SQL et requêtes
   con <- dbConnect(SQLite(), dbname="donnee.db")
-  richesse_specifique(chemin_acces)
-  latitude_annees()
-  carte()
+  res_richesse <- richesse_specifique(chemin_acces)
+  res_lat <- latitude_annees()
+  res_carte <- carte()
+  
+  # c) demander de retourner les résultats
+  return(res_richesse)
+  return(res_lat)
+  return(res_carte)
   dbDisconnect(con)
 }
-
-setwd("C:/Users/alex/OneDrive - USherbrooke/École/Hiver_2025/Écologie Computationnelle/BIO500_Lepidopteres_MAJM/Projet_final")
-#test
-lecture_donnees("C:/Users/alex/OneDrive - USherbrooke/École/Hiver_2025/Écologie Computationnelle/BIO500_Lepidopteres_MAJM/Projet_final")
-assemblage_donnees("C:/Users/alex/OneDrive - USherbrooke/École/Hiver_2025/Écologie Computationnelle/BIO500_Lepidopteres_MAJM/Projet_final")
-creation_SQL("C:/Users/alex/OneDrive - USherbrooke/École/Hiver_2025/Écologie Computationnelle/BIO500_Lepidopteres_MAJM/Projet_final")
-warninrequetes_SQL("C:/Users/alex/OneDrive - USherbrooke/École/Hiver_2025/Écologie Computationnelle/BIO500_Lepidopteres_MAJM/Projet_final")
+# les fonctions fonctionnent toutes indépendemment et sortent des résultats, mais dans cette grosse fonction, ça ne fonctionne pas, les résultats ne sortent pas...

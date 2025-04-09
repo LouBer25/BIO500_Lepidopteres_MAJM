@@ -219,6 +219,9 @@ richesse_specifique <- function(chemin_acces){
 # 28) Requête SQL qui sort les latitudes par année des trois espèce qu'on retrouve dans le plus d'année
 
 latitude_annees <- function(){
+  # a) Connection au language SQL
+  con <- dbConnect(SQLite(), dbname="donnee.db")
+  
   requete_latitude_espece <- "
   SELECT 
   strftime('%Y', o.dwc_event_date) AS annee,
@@ -239,14 +242,18 @@ latitude_annees <- function(){
 # requête pour la carte richesse par coordonnées géographiques (arrondies à l'unité) pour l'année 2020
 
 carte <- function(){
+  # a) Connection au language SQL
+  con <- dbConnect(SQLite(), dbname="donnee.db")
+  
   requete_carte <- "
   SELECT d.year_obs AS annee, COUNT(DISTINCT o.observed_scientific_name) AS nombre_especes, lat AS latitude, lon AS longitude
   FROM observation o
+  JOIN date d ON o.dwc_event_date = d.dwc_event_date
   WHERE 
   (annee = 2020)
   AND (lat >= 45 AND lat<=62)
   AND (lon >= -80 AND lon <= -57)
-  GROUP BY LAT;"
+  GROUP BY lat;"
   
   resultat_carte <- dbGetQuery(con, requete_carte)
   res_carte <- return(resultat_carte)

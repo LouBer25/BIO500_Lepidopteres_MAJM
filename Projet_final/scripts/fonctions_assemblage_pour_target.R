@@ -1,5 +1,5 @@
 # Set Working Directory au dossier "./Projet_final", ce sera votre chemin d'accès
-setwd("C:/Users/alex/OneDrive - USherbrooke/École/Hiver_2025/Écologie Computationnelle/BIO500_Lepidopteres_MAJM/Projet_final")
+setwd(chemin_acces)
 
 # 1) Lecture des données et installation des librairies
 lecture_donnees <- function(chemin_acces){

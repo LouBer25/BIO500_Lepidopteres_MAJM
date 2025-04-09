@@ -103,13 +103,12 @@ dbSendQuery(con, creer_observation)
 
 # 11) Ouverture de la fonction pour la création de données
 setwd(chemin_acces)
-setwd("./scripts")
-source("11_fonction_creation_donnees.R")
+source("scripts/11_fonction_creation_donnees.R")
 
 # 11) Assignation des données
 donnee_espece <- espece(getwd())
 donnee_date <- date(getwd())
-donnee_source <- source(getwd())
+donnee_source <- `source`(getwd())
 donnee_abbondance <- abbondance(getwd())
 donnee_latitude <- latitude(getwd())
 donnee_longitude <- longitude(getwd())

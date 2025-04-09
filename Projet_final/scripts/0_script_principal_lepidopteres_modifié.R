@@ -21,20 +21,16 @@ library(readr)
 ### Pour les prochaines étapes, copiez/collez votre chemin d'accès entre les guillemets lorsqu'indiqué.###
 
 
-
-# 2) Set Working Directory au dossier "BIO500_Lepidopteres_MAJM", ou exécuter la fonction suivante :
-#setwd("C:/Users/alex/OneDrive - USherbrooke/École/Hiver_2025/Écologie Computationnelle/BIO500_Lepidopteres_MAJM")
-
 # 3) Exécutez les fonctions suivantes pour charger les fonctions qui seront utiles pour nettoyer les données.
-setwd("./Projet_final")	#Ouvrir le Working Directory qui contient les fichiers sources des fonctions
-source("1_fonction_BD.R")
-source("3_fonction_formats_temporels.R")
-source("4_fonction_coordo_geographiques.R")
-source("5_fonction_types_donnees.R")
-source("6_fonction_obs_variable.R")
-source("7_fonction_taxonomie_itis.R")
-source("8_fonction_creation_tableau_taxonomie.R")
-source("9_fonction_itis_lepido.R")
+setwd(chemin_acces)	#jusqu'à /Projet_final
+source("scripts/1_fonction_BD.R")
+source("scripts/3_fonction_formats_temporels.R")
+source("scripts/4_fonction_coordo_geographiques.R")
+source("scripts/5_fonction_types_donnees.R")
+source("scripts/6_fonction_obs_variable.R")
+source("scripts/7_fonction_taxonomie_itis.R")
+source("scripts/8_fonction_creation_tableau_taxonomie.R")
+source("scripts/9_fonction_itis_lepido.R")
 
 
 # 4) Exécutez la fonction suivante pour générer la base de données
@@ -61,7 +57,7 @@ lepido_new <- convertir_types(lepido_new)   #fonctionne, mais à retravailler: d
 lepido_new <- remplacer_obs_variable(lepido_new)
 
 # 9) Exécutez la fonction suivante pour générer la base de données sur les espèces
-taxonomie_BD <- read.csv("../taxonomie_test.csv")
+taxonomie_BD <- read.csv("tables_pour_SQL/taxonomie_test.csv")
 
 # 10) Ajoute le code itis au tableau taxonomie
 taxonomie_table <- tableau_taxonomie("..")
@@ -70,7 +66,7 @@ taxonomie_table <- tableau_taxonomie("..")
 lepido_new <- colonne_itis(getwd())
 
 # 12) Ouvrir la source pour écrire le fichier csv "lepido_final.csv"
-source("10_fonction_csv_lepido_final.R")
+source("scripts/10_fonction_csv_lepido_final.R")
 
 # 13) Créer le fichier csv "lepido_final.csv"
 ecrire_lepido_final("./lepido_final.csv")
@@ -178,12 +174,12 @@ creer_observation <-
 dbSendQuery(con, creer_observation)
 
 # 24) Ouverture de la fonction pour la création de données
-source("11_fonction_creation_donnees.R")
+source("scripts/11_fonction_creation_donnees.R")
 
 # 25) Assignation des données
 donnee_espece <- espece(getwd())
 donnee_date <- date(getwd())
-donnee_source <- source(getwd())
+donnee_source <- `source`(getwd())
 donnee_abbondance <- abbondance(getwd())
 donnee_latitude <- latitude(getwd())
 donnee_longitude <- longitude(getwd())
@@ -203,7 +199,7 @@ dbWriteTable(con, append = TRUE, name = "observation", value = donnee_observatio
 # 27) Requête SQL qui sort le nombre d'espèces par année
 richesse_specifique <- function(chemin_acces){
   setwd(chemin_acces)
-  setwd("./Projet_final")
+
   # a) Connection au language SQL
   con <- dbConnect(SQLite(), dbname="donnee.db")
   
@@ -216,7 +212,7 @@ richesse_specifique <- function(chemin_acces){
     ORDER BY d.year_obs;
   "
   resultats_nombre_especes <- dbGetQuery(con, requete_nombre_especes_par_annee)
-  return(resultats_nombre_especes)
+  res_sp_annee <- return(resultats_nombre_especes)
 }
 
 
@@ -237,7 +233,7 @@ latitude_annees <- function(){
   ORDER BY annee, observed_scientific_name;
   "
   resultat_latitude_espece <- dbGetQuery(con, requete_latitude_espece)
-  return(resultat_latitude_espece)
+  res_lat <- return(resultat_latitude_espece)
 }
 
 # requête pour la carte richesse par coordonnées géographiques (arrondies à l'unité) pour l'année 2020
@@ -249,7 +245,11 @@ carte <- function(){
   WHERE 
   (annee = 2020)
   AND (lat >= 45 AND lat<=62)
-  AND (lon >= -80 AND lon <= -57);"
+  AND (lon >= -80 AND lon <= -57)
+  GROUP BY LAT;"
+  
+  resultat_carte <- dbGetQuery(con, requete_carte)
+  res_carte <- return(resultat_carte)
 }
 
 # 29) Déconnection de SQL

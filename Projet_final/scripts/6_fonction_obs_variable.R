@@ -3,7 +3,7 @@
 remplacer_obs_variable <- function(tableau) {
   
   # Relier les valeurs
-  trans_obs_variable <- c("occurrence" = 0,
+  trans_obs_variable <- c("occurrence" = 1,
                           "presence" = 1, 
                          "pr@#sence" = 1,
                           "abundance" = 2)

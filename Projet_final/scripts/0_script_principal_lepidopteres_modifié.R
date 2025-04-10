@@ -256,7 +256,7 @@ carte <- function(){
   GROUP BY lat;"
   
   resultat_carte <- dbGetQuery(con, requete_carte)
-  res_carte <- return(resultat_carte)
+  write.csv(resultat_carte, file = "data/resultat_carte.csv")
 }
 
 # 29) Déconnection de SQL

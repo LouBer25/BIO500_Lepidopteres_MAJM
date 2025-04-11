@@ -3,7 +3,7 @@
 
 ## faire une fonction avec ça, l'étape c bogue lorque mis dans une fonction
 
-creer_carte <- function(chemin_acces)
+creer_carte <- function(chemin_acces){
   setwd(chemin_acces)
     # b) installation des packages nécessaires
   library(dplyr)
@@ -41,3 +41,4 @@ creer_carte <- function(chemin_acces)
   # les longitudes sont comptées vers la droite, ex. un carré complètement à gauche regroupe les données pour la longitude [-80, -79[
   carte_distribution <- plot(r_rasterized, main = "Distribution de la richesse spécifique de lépidoptères au Québec")
   savePlot(filename ="data/carte_distribution_richesse", type = "png")
+}

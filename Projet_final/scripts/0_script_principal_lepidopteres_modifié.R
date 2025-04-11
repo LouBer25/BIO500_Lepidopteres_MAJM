@@ -197,8 +197,7 @@ dbWriteTable(con, append = TRUE, name = "observation", value = donnee_observatio
 
 ### ajouter la création d'objet des valeurs retournées et la création du graphique dans ces fonctions
 # 27) Requête SQL qui sort le nombre d'espèces par année
-richesse_specifique <- function(chemin_acces){
-  setwd(chemin_acces)
+richesse_specifique <- function(){
 
   # a) Connection au language SQL
   con <- dbConnect(SQLite(), dbname="donnee.db")

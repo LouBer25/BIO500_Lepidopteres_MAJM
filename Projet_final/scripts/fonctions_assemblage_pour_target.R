@@ -13,7 +13,7 @@ lecture_donnees <- function(chemin_acces){
   library(terra)
   
   # a) Set Working Directory au dossier "Projet_final", ou exécuter la fonction suivante :
-  setwd(chemin_acces)
+
   # b) Exécutez les fonctions suivantes pour charger les fonctions qui seront utiles pour nettoyer les données.
   #source("scripts/0_script_principal_lepidopteres_modifié.R")
   source("scripts/1_fonction_BD.R")
@@ -201,7 +201,7 @@ requetes_SQL <- function(chemin_acces){
   
   # b) Connection au language SQL et requêtes
   con <- dbConnect(SQLite(), dbname="donnee.db")
-  res_richesse <- richesse_specifique(chemin_acces)
+  res_richesse <- richesse_specifique()
   res_lat <- latitude_annees()
   res_carte <- carte()
   
@@ -212,3 +212,8 @@ requetes_SQL <- function(chemin_acces){
   dbDisconnect(con)
 }
 # les fonctions fonctionnent toutes indépendemment et sortent des résultats, mais dans cette grosse fonction, ça ne fonctionne pas, les résultats ne sortent pas...
+setwd("C:/Users/alex/OneDrive - USherbrooke/École/Hiver_2025/Écologie Computationnelle/BIO500_Lepidopteres_MAJM/Projet_final")
+lecture_donnees("C:/Users/alex/OneDrive - USherbrooke/École/Hiver_2025/Écologie Computationnelle/BIO500_Lepidopteres_MAJM/Projet_final")
+assemblage_donnees("C:/Users/alex/OneDrive - USherbrooke/École/Hiver_2025/Écologie Computationnelle/BIO500_Lepidopteres_MAJM/Projet_final")
+creation_SQL("C:/Users/alex/OneDrive - USherbrooke/École/Hiver_2025/Écologie Computationnelle/BIO500_Lepidopteres_MAJM/Projet_final")
+requetes_SQL("C:/Users/alex/OneDrive - USherbrooke/École/Hiver_2025/Écologie Computationnelle/BIO500_Lepidopteres_MAJM/Projet_final")

@@ -1,6 +1,3 @@
-# Set Working Directory au dossier "./Projet_final", ce sera votre chemin d'accès
-setwd(chemin_acces)
-
 # 1) Lecture des données et installation des librairies
 lecture_donnees <- function(chemin_acces){
   library(dplyr)              #Cela est plus optimisé que des boucle, sinon se sera trop long à générer

@@ -1,3 +1,7 @@
+# Set Working Directory au dossier "./Projet_final", ce sera votre chemin d'accès
+setwd(chemin_acces)
+
+
 # 1) Lecture des données et installation des librairies
 lecture_donnees <- function(chemin_acces){
   library(dplyr)              #Cela est plus optimisé que des boucle, sinon se sera trop long à générer
@@ -189,7 +193,7 @@ creation_SQL <- function(chemin_acces){
 ### avec target on laisse les 3 fonctions du script 14
 #requetes_SQL <- function(chemin_acces){
 
-source(chemin_acces)
+#source(chemin_acces)
 
   # b) Connection au language SQL et requêtes
   #richesse_specifique("./data")

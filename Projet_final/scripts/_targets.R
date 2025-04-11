@@ -9,11 +9,7 @@ list(
 	tar_target(
 		librairie_et_source_pour_nettoyage_des_donnees,
 		lecture_donnees("./scripts")
-	)
-)
-	
-	
-	,
+	),
 	tar_target(
 		assemblage_et_nettoyage_des_donnees,
 		assemblage_donnees("../Projet_final/Lepidopteres_BD")

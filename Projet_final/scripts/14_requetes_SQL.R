@@ -1,6 +1,6 @@
 ### ajouter la création d'objet des valeurs retournées et la création du graphique dans ces fonctions
 # 27) Requête SQL qui sort le nombre d'espèces par année
-richesse_specifique <- function(){
+richesse_specifique <- function(chemin_acces){
   
   # a) Connection au language SQL
   con <- dbConnect(SQLite(), dbname="donnee.db")
@@ -15,7 +15,8 @@ richesse_specifique <- function(){
   "
   resultats_nombre_especes <- dbGetQuery(con, requete_nombre_especes_par_annee)
   return(resultats_nombre_especes)
-  write.csv(resultats_nombre_especes, file="data/resultat_richesse.csv")
+  setwd(chemin_acces)
+  write.csv(resultats_nombre_especes, file="resultat_richesse.csv")
   
   dbDisconnect(con)
 }
@@ -23,7 +24,7 @@ richesse_specifique <- function(){
 
 # 2) Requête SQL qui sort les latitudes par année des trois espèce qu'on retrouve dans le plus d'année
 
-latitude_annees <- function(){
+latitude_annees <- function(chemin_acces){
   # a) Connection au language SQL
   con <- dbConnect(SQLite(), dbname="donnee.db")
   
@@ -42,14 +43,15 @@ latitude_annees <- function(){
   "
   resultat_latitude_espece <- dbGetQuery(con, requete_latitude_espece)
   res_lat <- return(resultat_latitude_espece)
-  write.csv(res_lat, file= "data/resultat_latitude.csv")
+  setwd(chemin_acces)
+  write.csv(res_lat, file= "resultat_latitude.csv")
   
   dbDisconnect(con)
 }
 
 # requête pour la carte richesse par coordonnées géographiques (arrondies à l'unité) pour l'année 2020
 
-carte <- function(){
+carte <- function(chemin_acces){
   # a) Connection au language SQL
   con <- dbConnect(SQLite(), dbname="donnee.db")
   
@@ -64,8 +66,12 @@ carte <- function(){
   GROUP BY lat;"
   
   resultat_carte <- dbGetQuery(con, requete_carte)
-  write.csv(resultat_carte, file = "data/resultat_carte.csv")
+  setwd(chemin_acces)
+  write.csv(resultat_carte, file = "resultat_carte.csv")
   
   dbDisconnect(con)
 }
 
+richesse_specifique("../Projet_final/data")
+latitude_annees("../Projet_final/data")
+carte("../Projet_final/data")

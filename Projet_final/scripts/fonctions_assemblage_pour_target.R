@@ -11,11 +11,12 @@ lecture_donnees <- function(chemin_acces){
   library(readr)
   library(RSQLite)
   library(terra)
-  
-  # a) Set Working Directory au dossier "Projet_final", ou exécuter la fonction suivante :
 
+  # a) set working directory
+  setwd(chemin_acces)
+  
   # b) Exécutez les fonctions suivantes pour charger les fonctions qui seront utiles pour nettoyer les données.
-  #source("scripts/0_script_principal_lepidopteres_modifié.R")
+  source("scripts/14_requetes_SQL.R")
   source("scripts/1_fonction_BD.R")
   source("scripts/3_fonction_formats_temporels.R")
   source("scripts/4_fonction_coordo_geographiques.R")
@@ -31,7 +32,7 @@ lecture_donnees <- function(chemin_acces){
 # chemin_acces = "./Lepidopteres_BD"
 assemblage_donnees <- function(chemin_acces){
   setwd(chemin_acces)
-
+  
   # a) Générer la base de données
   setwd("./Lepidopteres_BD")
   lepido_BD <- Lepidopteres_BD(getwd())
@@ -192,28 +193,11 @@ creation_SQL <- function(chemin_acces){
 }
 
 # 4) Requêtes SQL
-### ajouter la création d'objet des valeurs retournées et la création du graphique dans les fonctions du script principal
+### avec target on laisse les 3 fonctions du script 14
 
-requetes_SQL <- function(chemin_acces){
-  setwd(chemin_acces)
-  # a) aller chercher les fonctions qui contiennent les requêtes
-  source("scripts/0_script_principal_lepidopteres_modifié.R")
-  
+#requetes_SQL <- function(){
+
   # b) Connection au language SQL et requêtes
-  con <- dbConnect(SQLite(), dbname="donnee.db")
-  res_richesse <- richesse_specifique()
-  res_lat <- latitude_annees()
-  res_carte <- carte()
-  
-  # c) demander de retourner les résultats
-  return(res_richesse)
-  return(res_lat)
-  return(res_carte)
-  dbDisconnect(con)
-}
-# les fonctions fonctionnent toutes indépendemment et sortent des résultats, mais dans cette grosse fonction, ça ne fonctionne pas, les résultats ne sortent pas...
-setwd("C:/Users/alex/OneDrive - USherbrooke/École/Hiver_2025/Écologie Computationnelle/BIO500_Lepidopteres_MAJM/Projet_final")
-lecture_donnees("C:/Users/alex/OneDrive - USherbrooke/École/Hiver_2025/Écologie Computationnelle/BIO500_Lepidopteres_MAJM/Projet_final")
-assemblage_donnees("C:/Users/alex/OneDrive - USherbrooke/École/Hiver_2025/Écologie Computationnelle/BIO500_Lepidopteres_MAJM/Projet_final")
-creation_SQL("C:/Users/alex/OneDrive - USherbrooke/École/Hiver_2025/Écologie Computationnelle/BIO500_Lepidopteres_MAJM/Projet_final")
-requetes_SQL("C:/Users/alex/OneDrive - USherbrooke/École/Hiver_2025/Écologie Computationnelle/BIO500_Lepidopteres_MAJM/Projet_final")
+  #richesse_specifique("./data")
+  #latitude_annees("./data")
+  #carte("./data")}

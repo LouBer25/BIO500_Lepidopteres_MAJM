@@ -12,6 +12,23 @@ lecture_donnees <- function(chemin_acces){
   library(readr)
   library(RSQLite)
   library(terra)
+  #install.packages("ggplot2")
+  library(ggplot2)
+  #install.packages("viridis")
+  library(viridis)
+  #install.packages("ggspatial")
+  library(ggspatial)
+  #install.packages("maptiles")
+  library(maptiles)
+  #install.packages("rnaturalearth")
+  library(rnaturalearth)
+  #install.packages("rnaturalearthdata")
+  library(rnaturalearthdata)
+  #install.packages("sf")
+  library(sf)
+  #install.packages("devtools")
+  library(devtools)
+  devtools::install_github("ropensci/rnaturalearthhires")
 
   # a) set working directory
   setwd("chemin_acces")
@@ -25,6 +42,7 @@ lecture_donnees <- function(chemin_acces){
   source("7_fonction_taxonomie_itis.R")
   source("8_fonction_creation_tableau_taxonomie.R")
   source("9_fonction_itis_lepido.R")
+  source("15_creation_carte_graph.R")
 }
 
 
@@ -199,3 +217,15 @@ creation_SQL <- function(chemin_acces){
   #richesse_specifique("./data")
   #latitude_annees("./data")
   #carte("./data")}
+
+### 5) Création graphiques et carte finaux ###
+
+# a)Graphique de la richesse spécifique
+graph_richesse_specifique(richesse_specifique)
+
+# b)Graphique des latitudes des 4 espèces les plus abondantes
+graph_latitude_annee(latitude_annee)
+
+# c)Création carte richesse spécifique par degré de latitude et longitude
+graph_carte(carte)
+

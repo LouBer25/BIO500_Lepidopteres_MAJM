@@ -1,5 +1,4 @@
 # Set Working Directory au dossier "./Projet_final", ce sera votre chemin d'accès
-setwd(chemin_acces)
 
 
 # 1) Lecture des données et installation des librairies

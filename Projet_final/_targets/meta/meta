@@ -1,0 +1,4 @@
+name|type|data|command|depend|seed|path|time|size|bytes|format|repository|iteration|parent|children|seconds|warnings|error
+data|stem|3d5aaa07dbfa5af0|471f4c50e8eb2dc6|2c530c1562a7fbd1|33550471||t20195.6162015637s|s451b|451|rds|local|vector|||0||
+data_summary|stem|20496965a10956c2|2e4ea7419356bab6|6a79354e917afccf|-651121042||t20195.6162029064s|s87b|87|rds|local|vector|||0||
+summarize_data|function|dc619228d9319364

@@ -3,7 +3,7 @@ title: Template for preparing your research report submission to PNAS using RMar
 
 # Use letters for affiliations, numbers to show equal authorship (if applicable) and to indicate the corresponding author
 author:
-  - name: Alice Anonymous
+  - name: Maïté
     affiliation: a,1,2
   - name: Bob Security
     affiliation: a,b

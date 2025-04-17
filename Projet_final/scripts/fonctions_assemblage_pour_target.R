@@ -27,7 +27,7 @@ lecture_donnees <- function(chemin_acces){
   devtools::install_github("ropensci/rnaturalearthhires")
 
   # a) set working directory
-  setwd("chemin_acces")
+  setwd(chemin_acces)
   
   # b) Exécutez les fonctions suivantes pour charger les fonctions qui seront utiles pour nettoyer les données.
   source("1_fonction_BD.R")

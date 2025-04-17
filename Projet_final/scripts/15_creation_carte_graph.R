@@ -1,6 +1,6 @@
 #Fabrication graphique richesse spéficique
 #ATTENTION ATTENTION ATTENTION POSSIBLEMENT CHANGER nb_especes EN FONCTION DU RÉSULTATS DANS SQL car nouvelle colonne qui compte
-source("./scripts/14_requetes_SQL.R")
+source("C:/Users/marbe/Desktop/UdeS Hiver 2025/Méthodes en écologie computationnelle/BIO500_Lepidopteres_MAJM/Projet_final/scripts/scripts/14_requetes_SQL.R")
 
 graph_richesse_specifique <- function(richesse_specifique) {
   ggplot(richesse_specifique, aes(x = year_obs, y = nb_especes)) +

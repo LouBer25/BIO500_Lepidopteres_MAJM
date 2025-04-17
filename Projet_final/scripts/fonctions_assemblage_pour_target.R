@@ -1,6 +1,3 @@
-# Set Working Directory au dossier "./Projet_final", ce sera votre chemin d'accès
-
-
 # 1) Lecture des données et installation des librairies
 lecture_donnees <- function(chemin_acces){
   library(dplyr)              #Cela est plus optimisé que des boucle, sinon se sera trop long à générer
@@ -41,6 +38,7 @@ lecture_donnees <- function(chemin_acces){
   source("7_fonction_taxonomie_itis.R")
   source("8_fonction_creation_tableau_taxonomie.R")
   source("9_fonction_itis_lepido.R")
+  source("14_requetes_SQL.R")
   source("15_creation_carte_graph.R")
 }
 
@@ -219,6 +217,7 @@ creation_SQL <- function(chemin_acces){
 
 ### 5) Création graphiques et carte finaux ###
 
+source("C:/Users/marbe/Desktop/UdeS Hiver 2025/Méthodes en écologie computationnelle/BIO500_Lepidopteres_MAJM/Projet_final/scripts/15_creation_carte_graph.R")
 # a)Graphique de la richesse spécifique
 graph_richesse_specifique(richesse_specifique)
 

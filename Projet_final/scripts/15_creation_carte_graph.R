@@ -3,6 +3,7 @@
 source("./scripts/14_requetes_SQL.R")
 
 graph_richesse_specifique <- function(richesse_specifique) {
+  source("./scripts/14_requetes_SQL.R")
   ggplot(richesse_specifique, aes(x = year_obs, y = nb_especes)) +
     geom_line(color = "blue") +
     labs(title = "Nombre d'espèces par année",
@@ -16,6 +17,7 @@ graph_richesse_specifique <- function(richesse_specifique) {
 #Fabrication graphique latitude années
 
 graph_latitude_annee <- function(latitude_annee) {
+  source("./scripts/14_requetes_SQL.R")
   
   # Créer une nouvelle colonne "period" pour chaque espèce
   lepido_new <- lepido_new %>%
@@ -43,6 +45,7 @@ graph_latitude_annee <- function(latitude_annee) {
 #ATTENTION POSSIBLEMENT CHANGER LATITUDE,LONGITUDE ETC.EN lat et lon. SELON REQUETE SQL
 
 graph_carte <- function(carte) {
+  source("./scripts/14_requetes_SQL.R")
   
   # Vérification des colonnes
   if (!all(c("latitude", "longitude", "nombre_especes") %in% colnames(carte))) {

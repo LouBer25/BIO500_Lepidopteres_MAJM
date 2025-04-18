@@ -1,5 +1,4 @@
 # 1) Lecture des données et installation des librairies
-lecture_donnees <- function(chemin_acces){
   library(dplyr)              #Cela est plus optimisé que des boucle, sinon se sera trop long à générer
   library(ritis)              #Transformer les noms scientifiques en code ITIS.
   library(purrr)              #Optimiser le trajet en pouvant manipuler les listes.
@@ -40,7 +39,7 @@ lecture_donnees <- function(chemin_acces){
   source("9_fonction_itis_lepido.R")
   source("14_requetes_SQL.R")
   source("15_creation_carte_graph.R")
-}
+
 
 
 # 2) Assemblage et nettoyage des données

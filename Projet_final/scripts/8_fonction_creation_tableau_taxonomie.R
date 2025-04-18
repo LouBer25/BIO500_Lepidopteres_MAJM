@@ -1,8 +1,8 @@
 #8)Fonction pour ajouter le code itis au tableau taxonomie
 
 tableau_taxonomie <- function(chemin_acces){
-	setwd(chemin_acces)
-  setwd("./tables_pour_SQL")
+	taxonomie_BD <- read.csv(chemin_acces)
+	setwd("../tables_pour_SQL")
 	if (file.exists("taxonomie_BD.csv")){
 		print ("Le document taxonomie_BD existe déjà dans le répertoire")
 	}else{

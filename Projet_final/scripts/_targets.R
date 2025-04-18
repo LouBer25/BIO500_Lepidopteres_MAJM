@@ -1,34 +1,20 @@
-#setwd("C:/Users/marbe/Desktop/UdeS Hiver 2025/Méthodes en écologie computationnelle/BIO500_Lepidopteres_MAJM/Projet_final")
-setwd("C:/Users/marbe/Desktop/UdeS Hiver 2025/Méthodes en écologie computationnelle/BIO500_Lepidopteres_MAJM/Projet_final/Projet_final")
+setwd("C:/Users/marbe/Desktop/UdeS Hiver 2025/Méthodes en écologie computationnelle/BIO500_Lepidopteres_MAJM/Projet_final")
 library(targets)
 library(rmarkdown)
 library(tarchetypes)
-source("./scripts/fonctions_assemblage_pour_target.R")
-source("./scripts/15_creation_carte_graph.R")
+tar_option_set(packages = c("dplyr", "ritis", "purrr", "furrr", "future", "readr", "RSQLite", "terra", "ggplot2", "virisdis", "ggspatial", "maptiles", "rnaturalearth", "sf", "devtools"))
+
+# Script R
+source("./scripts/01_Assemblage_et_nettoyage_des_donnees.R")
 
 
 list(
-	tar_target(
-	  librairie_et_source_pour_nettoyage_des_donnees,
-		lecture_donnees("./scripts")
-	),
-	tar_target(
-		assemblage_et_nettoyage_des_donnees,
-		assemblage_donnees(librairie_et_source_pour_nettoyage_des_donnees)
-	),
-	tar_target(
-		creation_bd_SQL,
-		creation_SQL(assemblage_et_nettoyage_des_donnees)
-	),
-	tar_target(
-		requetes_et_graphiques_SQL,
-		graph_richesse_specifique(creation_bd_SQL)
-	),
-	tar_render(
-		rapport,
-		path = "./scripts/Rapport_lepidopteres/Rapport_lepidopteres.Rmd"
-	)
+  tar_target(
+    assemblage_donnees(lepido_new),
+    valeur(1000)
+  ),
 )
+
 
 #tar_visnetwork() #visualiser les dépendances
 #tar_make() # make it work!À écrire seulement dans la console

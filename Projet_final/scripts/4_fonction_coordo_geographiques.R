@@ -1,4 +1,4 @@
-#4 Fonction pour Corriger les coordonnées géographiques
+# 4) Fonction pour Corriger les coordonnées géographiques
 corriger_coordonnees <- function(df) {
   df_clean <- df
   

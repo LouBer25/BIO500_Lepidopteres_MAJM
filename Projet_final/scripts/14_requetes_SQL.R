@@ -14,9 +14,9 @@ richesse_specifique <- function(chemin_acces){
     ORDER BY d.year_obs;
   "
   resultats_nombre_especes <- dbGetQuery(con, requete_nombre_especes_par_annee)
-  return(resultats_nombre_especes)
   setwd(chemin_acces)
   write.csv(resultats_nombre_especes, file="resultat_richesse.csv")
+  return(resultats_nombre_especes)
   
   dbDisconnect(con)
 }
@@ -72,6 +72,3 @@ carte <- function(chemin_acces){
   dbDisconnect(con)
 }
 
-richesse_specifique("../Projet_final/data")
-latitude_annees("../Projet_final/data")
-carte("../Projet_final/data")

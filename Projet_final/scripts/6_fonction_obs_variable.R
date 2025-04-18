@@ -1,6 +1,6 @@
-# 5) Fonction qui remplace la valeur textuelle de la colonne obs_variable en valeur numérique dans lepido_new
+# 6) Fonction qui remplace la valeur textuelle de la colonne obs_variable en valeur numérique dans lepido_new
 
-remplacer_obs_variable <- function(tableau) {
+remplacer_obs_variable <- function(lepido_new) {
   
   # Relier les valeurs
   trans_obs_variable <- c("occurrence" = 1,

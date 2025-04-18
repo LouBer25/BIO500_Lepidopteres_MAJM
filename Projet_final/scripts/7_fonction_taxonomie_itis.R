@@ -1,4 +1,4 @@
-# Fonction qui transforme le nom textuel en code ITIS
+# 7) Fonction qui transforme le nom textuel en code ITIS
 Transformation_en_code_taxo <- function(taxonomie_BD) {
   
   # Extraire les noms uniques dans l'ensemble du tableau

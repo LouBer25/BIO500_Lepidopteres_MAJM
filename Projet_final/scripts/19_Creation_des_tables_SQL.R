@@ -162,4 +162,5 @@ requete_latitude_espece <- "
 
 
   return(list(resultats_nombre_especes, resultat_latitude_espece, resultat_carte))
+dbDisconnect(con)
 }

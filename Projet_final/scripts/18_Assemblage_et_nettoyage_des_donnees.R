@@ -1,10 +1,9 @@
 # 1) Assemblage et nettoyage des données
 
-assemblage_donnees <- function(fichiers_bruts){
+assemblage_donnees <- function(lepido_BD){
 
   # a) Sources
   setwd("../Projet_final/scripts")
-  source("1_fonction_BD.R")
   source("3_fonction_formats_temporels.R")
   source("4_fonction_coordo_geographiques.R")
   source("5_fonction_types_donnees.R")
@@ -13,9 +12,6 @@ assemblage_donnees <- function(fichiers_bruts){
   source("8_fonction_creation_tableau_taxonomie.R")
   source("9_fonction_itis_lepido.R")
   
-  # b) Générer la base de données
-  lepido_BD <- Lepidopteres_BD(fichiers_bruts)
-
   # c) Détecter et corriger les formats temporels
   lepido_new <- corriger_dates(lepido_BD)
 

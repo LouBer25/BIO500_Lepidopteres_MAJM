@@ -1,16 +1,11 @@
 name|type|data|command|depend|seed|path|time|size|bytes|format|repository|iteration|parent|children|seconds|warnings|error
 donnees_regroupees|stem||33ea903418d3c3b8|04e56cc6bed87e3d|2094121693||t20196.4444732624s||0|rds|local|vector|||18.07||Argument 155 must be a data frame or a named atomic vector.
 fichiers_bruts|stem|b8749c56c906ad2d|fa83c512ceaf506f|00dc4d7c22bcd2d1|252030092||t20196.4474370763s|s5786871b|5786871|rds|local|vector|||9.17|le package dplyr a été compilé avec la version R 4.4.3. le package ritis a été compilé avec la version R 4.4.3. le package purrr a été compilé avec la version R 4.4.3. le package furrr a été compilé avec la version R 4.4.3. le package future a été compilé avec la version R 4.4.3. le package readr a été compilé avec la version R 4.4.3. le package RSQLite a été compilé avec la version R 4.4.3. le package terra a été compilé avec la version R 4.4.3. le package ggplot2 a été compilé avec la version R 4.4.3. le package viridis a été compilé avec la version R 4.4.3. le package ggspatial a été compilé avec la version R 4.4.3. le package maptiles a été compilé avec la version R 4.4.3. le package rnaturalearth a été compilé avec la version R 4.4.3. le package rnaturalearthdata a été compilé avec la version R 4.4.3. le package sf a été compilé avec la version R 4.4.3. le package devtools a été compilé avec la version R 4.4.3. le package usethis a été compilé avec la version R 4.4.3|
-Lepidopteres_BD|function|03bc685eeec715e3|||||||||||||||
-graph_latitude_annee|function|69d6c069f53b3900|||||||||||||||
-creation_SQL|function|9f0f902e17a177e4|||||||||||||||
-graph_richesse_specifique|function|28219a446e154a71|||||||||||||||
-graph_carte|function|03c2b0edf8447984|||||||||||||||
-assemblage_donnees|function|c42a73c0d0b37944|||||||||||||||
-lepido_BD|stem|b8749c56c906ad2d|fa83c512ceaf506f|00dc4d7c22bcd2d1|565678189||t20196.4480322864s|s5786871b|5786871|rds|local|vector|||10.09|le package dplyr a été compilé avec la version R 4.4.3. le package ritis a été compilé avec la version R 4.4.3. le package purrr a été compilé avec la version R 4.4.3. le package furrr a été compilé avec la version R 4.4.3. le package future a été compilé avec la version R 4.4.3. le package readr a été compilé avec la version R 4.4.3. le package RSQLite a été compilé avec la version R 4.4.3. le package terra a été compilé avec la version R 4.4.3. le package ggplot2 a été compilé avec la version R 4.4.3. le package viridis a été compilé avec la version R 4.4.3. le package ggspatial a été compilé avec la version R 4.4.3. le package maptiles a été compilé avec la version R 4.4.3. le package rnaturalearth a été compilé avec la version R 4.4.3. le package rnaturalearthdata a été compilé avec la version R 4.4.3. le package sf a été compilé avec la version R 4.4.3. le package devtools a été compilé avec la version R 4.4.3. le package usethis a été compilé avec la version R 4.4.3|
-assemblage_donnees|function|76b54f9a4c22cb49
+assemblage_donnees|function|cad9d33477f5f96a
 graph_latitude_annee|function|69d6c069f53b3900
-creation_SQL|function|9f0f902e17a177e4
+creation_SQL|function|3824ff2088f5cb98
 graph_richesse_specifique|function|28219a446e154a71
 Lepidopteres_BD|function|03bc685eeec715e3
 graph_carte|function|03c2b0edf8447984
+lepido_BD|stem|10055de7bed248f0|fa83c512ceaf506f|00dc4d7c22bcd2d1|565678189||t20196.8733395789s|s5786871b|5786871|rds|local|vector|||17.89||
+nettoyage_donnees|stem|f226bcccef4150dd|b23f82bbf8da615e|0a1875ddb9857c68|-2082363653||t20196.8734229981s|s5130402b|5130402|rds|local|vector|||3.11|NAs introduits lors de la conversion automatique|

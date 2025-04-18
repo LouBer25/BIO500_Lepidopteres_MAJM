@@ -1,7 +1,7 @@
 #9) Fonction pour ajouter le code itis au tableau lepido_new
 
 colonne_itis <- function(lepido_new){
-	taxonomie_itis <- read.csv("./taxonomie_BD.csv")
+	taxonomie_itis <- read.csv("./tables_pour_SQL/taxonomie_BD.csv")
 	lepido_new <- lepido_new %>%
   	left_join(
 		taxonomie_itis %>% select(observed_scientific_name, itis_code),

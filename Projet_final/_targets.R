@@ -1,4 +1,4 @@
-setwd("C:/Users/marbe/Desktop/UdeS Hiver 2025/Méthodes en écologie computationnelle/BIO500_Lepidopteres_MAJM/Projet_final")
+setwd("C:/Users/alex/OneDrive - USherbrooke/École/Hiver_2025/Écologie Computationnelle/BIO500_Lepidopteres_MAJM/Projet_final")
 
 #Dépendance
 library(targets)
@@ -19,11 +19,11 @@ source("./scripts/22_creation_carte.R")
 
 list(
  tar_target(
-    lepido_BD,
-    Lepidopteres_BD("./Lepidopteres_BD")
+    name = lepido_BD,
+    command = Lepidopteres_BD("./Lepidopteres_BD")
   ),
  tar_target(
-    nettoyage_donnees,
-    assemblage_donnees(lepido_BD)
+    name = nettoyage_donnees,
+    command = assemblage_donnees(lepido_BD)
  )
 )

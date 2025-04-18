@@ -21,9 +21,5 @@ list(
     fichiers_bruts,
     list.files("Lepidopteres_BD/", pattern = "\\.csv$", full.names = TRUE),
     format = "file"
-  ),
- tar_target(
-    donnees,
-    assemblage_donnees(fichiers_bruts)
- )
+  )
 )

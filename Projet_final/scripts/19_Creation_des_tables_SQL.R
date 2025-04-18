@@ -100,7 +100,7 @@ creation_SQL <- function(){
   dbSendQuery(con, creer_observation)
 
   # j) Ouverture de la fonction pour la création de données
-  source("../scripts/11_fonction_creation_donnees.R")
+  source("./scripts/11_fonction_creation_donnees.R")
 
   # k) Assignation des données
   donnee_espece <- espece(2)

@@ -1,11 +1,14 @@
 name|type|data|command|depend|seed|path|time|size|bytes|format|repository|iteration|parent|children|seconds|warnings|error
 donnees_regroupees|stem||33ea903418d3c3b8|04e56cc6bed87e3d|2094121693||t20196.4444732624s||0|rds|local|vector|||18.07||Argument 155 must be a data frame or a named atomic vector.
 fichiers_bruts|stem|b8749c56c906ad2d|fa83c512ceaf506f|00dc4d7c22bcd2d1|252030092||t20196.4474370763s|s5786871b|5786871|rds|local|vector|||9.17|le package dplyr a été compilé avec la version R 4.4.3. le package ritis a été compilé avec la version R 4.4.3. le package purrr a été compilé avec la version R 4.4.3. le package furrr a été compilé avec la version R 4.4.3. le package future a été compilé avec la version R 4.4.3. le package readr a été compilé avec la version R 4.4.3. le package RSQLite a été compilé avec la version R 4.4.3. le package terra a été compilé avec la version R 4.4.3. le package ggplot2 a été compilé avec la version R 4.4.3. le package viridis a été compilé avec la version R 4.4.3. le package ggspatial a été compilé avec la version R 4.4.3. le package maptiles a été compilé avec la version R 4.4.3. le package rnaturalearth a été compilé avec la version R 4.4.3. le package rnaturalearthdata a été compilé avec la version R 4.4.3. le package sf a été compilé avec la version R 4.4.3. le package devtools a été compilé avec la version R 4.4.3. le package usethis a été compilé avec la version R 4.4.3|
+lepido_BD|stem|10055de7bed248f0|fa83c512ceaf506f|00dc4d7c22bcd2d1|565678189||t20196.8733395789s|s5786871b|5786871|rds|local|vector|||17.89||
+nettoyage_donnees|stem|f226bcccef4150dd|b23f82bbf8da615e|0a1875ddb9857c68|-2082363653||t20196.8734229981s|s5130402b|5130402|rds|local|vector|||3.11|NAs introduits lors de la conversion automatique|
+donnees|stem|f226bcccef4150dd|b23f82bbf8da615e|0a1875ddb9857c68|-1375965411||t20196.8769242958s|s5130402b|5130402|rds|local|vector|||2.86|NAs introduits lors de la conversion automatique|
+bd_SQL|stem||b7abdc74fb4c874c|c60d424dacdad8a4|1510083231||t20196.8784893945s||0|rds|local|vector|||12.8|Closing open result set, pending rows. Closing open result set, pending rows. Closing open result set, pending rows. Closing open result set, pending rows. Closing open result set, pending rows. Closing open result set, pending rows. Closing open result set, pending rows. Closing open result set, pending rows. Closing open result set, pending rows. Closing open result set, pending rows. Closing open result set, pending rows. Closing open result set, pending rows. Closing open result set, pending rows|objet donnee introuvable
 assemblage_donnees|function|cad9d33477f5f96a
 graph_latitude_annee|function|69d6c069f53b3900
-creation_SQL|function|3824ff2088f5cb98
+creation_SQL|function|a7d30da292bb8379
 graph_richesse_specifique|function|28219a446e154a71
 Lepidopteres_BD|function|03bc685eeec715e3
 graph_carte|function|03c2b0edf8447984
-lepido_BD|stem|10055de7bed248f0|fa83c512ceaf506f|00dc4d7c22bcd2d1|565678189||t20196.8733395789s|s5786871b|5786871|rds|local|vector|||17.89||
-nettoyage_donnees|stem|f226bcccef4150dd|b23f82bbf8da615e|0a1875ddb9857c68|-2082363653||t20196.8734229981s|s5130402b|5130402|rds|local|vector|||3.11|NAs introduits lors de la conversion automatique|
+richesse_specifique|stem||85b92f47fa064553|f0e5ac4b6b9551dd|553658595||t20196.8926262614s||0|rds|local|vector|||10.47||objet requete introuvable

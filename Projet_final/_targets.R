@@ -23,7 +23,15 @@ list(
     command = Lepidopteres_BD("./Lepidopteres_BD")
   ),
  tar_target(
-    name = nettoyage_donnees,
+    name = donnees,
     command = assemblage_donnees(lepido_BD)
+ ),
+ tar_target(
+   name = richesse_specifique,
+   command = graph_richesse_specifique()
+ ),
+ tar_target(
+   name = latitude_annee,
+   command = graph_latitude_annee()
  )
 )

@@ -1,4 +1,4 @@
-setwd("C:/Users/alex/OneDrive - USherbrooke/École/Hiver_2025/Écologie Computationnelle/BIO500_Lepidopteres_MAJM/Projet_final")
+setwd("C:/Users/marbe/Desktop/UdeS Hiver 2025/Méthodes en écologie computationnelle/BIO500_Lepidopteres_MAJM/Projet_final")
 
 #Dépendance
 library(targets)
@@ -23,15 +23,23 @@ list(
     command = Lepidopteres_BD("./Lepidopteres_BD")
   ),
  tar_target(
-    name = donnees,
+    name = donnee,
     command = assemblage_donnees(lepido_BD)
  ),
  tar_target(
+   name = requete,
+   command = creation_SQL(donnee)
+ ),
+ tar_target(
    name = richesse_specifique,
-   command = graph_richesse_specifique()
+   command = graph_richesse_specifique(requete)
  ),
  tar_target(
    name = latitude_annee,
-   command = graph_latitude_annee()
+   command = graph_latitude_annee(requete)
+ ),
+ tar_target(
+   name = carte,
+   command = graph_carte(requete)
  )
 )

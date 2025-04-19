@@ -1,6 +1,6 @@
 # 22) Fonction pour la création de la carte
 
-graph_carte <- function() {
+graph_carte <- function(requete) {
   carte <- requete[[3]]
   # Vérification des colonnes
   if (!all(c("latitude", "longitude", "nombre_especes") %in% colnames(carte))) {
@@ -26,7 +26,7 @@ graph_carte <- function() {
   quebec <- canada %>% filter(name_en == "Quebec")
   
   # Étape 5: Afficher la carte avec ggplot
-  ggplot() +
+  graphique_carte <- ggplot() +
     # Contour du Québec avec bordure élégante
     geom_sf(data = quebec, fill = NA, color = "darkblue", size = 1.2) +
     
@@ -41,9 +41,7 @@ graph_carte <- function() {
     
     # Titres et légendes
     labs(
-      title = "Distribution des lépidoptères au Québec en 2020",
       subtitle = "Richesse spécifique par case de 1°",
-      caption = "Source : Observations des lépidoptères",
       color = "Richesse\nSpécifique",
       size = "Nombre\nD'espèces"
     ) +
@@ -61,5 +59,6 @@ graph_carte <- function() {
     ) +
     
     # Coordonnées et zoom sur le Québec
-    coord_sf(xlim = c(-80, -57), ylim = c(44, 54), expand = FALSE)
+    coord_sf(xlim = c(-81, -56), ylim = c(44, 54), expand = FALSE)
+    ggsave("./data/graphique_carte.pdf", plot = graphique_carte, width = 10, height = 8)
 }

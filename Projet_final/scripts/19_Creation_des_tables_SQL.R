@@ -1,5 +1,5 @@
 # 2) Création des tables SQL et injection des donnnées
-creation_SQL <- function(){
+creation_SQL <- function(donnee){
   
   # a) Connection au language SQL
   con <- dbConnect(SQLite(), dbname="donnee.db")
@@ -103,13 +103,13 @@ creation_SQL <- function(){
   source("./scripts/11_fonction_creation_donnees.R")
 
   # k) Assignation des données
-  donnee_espece <- espece(2)
-  donnee_date <- date(1)
-  donnee_source <- `source`(1)
-  donnee_abbondance <- abbondance(1)
-  donnee_latitude <- latitude(1)
-  donnee_longitude <- longitude(1)
-  donnee_observation <- observation(1)
+  donnee_espece <- espece(donnee[[2]])
+  donnee_date <- date(donnee[[1]])
+  donnee_source <- `source`(donnee[[1]])
+  donnee_abbondance <- abbondance(donnee[[1]])
+  donnee_latitude <- latitude(donnee[[1]])
+  donnee_longitude <- longitude(donnee[[1]])
+  donnee_observation <- observation(donnee[[1]])
 
   # l) Injection des données dans les tables
   dbWriteTable(con, append = TRUE, name = "espece", value = donnee_espece, row.names = FALSE)

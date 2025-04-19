@@ -60,5 +60,5 @@ graph_carte <- function(requete) {
     
     # Coordonnées et zoom sur le Québec
     coord_sf(xlim = c(-81, -56), ylim = c(44, 54), expand = FALSE)
-    ggsave("./data/graphique_carte.pdf", plot = graphique_carte, width = 10, height = 8)
+    ggsave("./data/graphique_carte.png", plot = graphique_carte, width = 10, height = 8)
 }

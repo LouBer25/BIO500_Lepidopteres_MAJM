@@ -41,9 +41,5 @@ list(
  tar_target(
    name = carte,
    command = graph_carte(requete)
- ),
- tar_render(
-    name = rapport_lepidopteres,
-    path = "./scripts/Rapport_lepidopteres/Rapport_lepidopteres.Rmd"
  )
 )

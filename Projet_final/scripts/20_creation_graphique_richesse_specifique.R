@@ -8,5 +8,5 @@ graph_richesse_specifique <- function(requete) {
          y = "Nombre d'espèces") +
     theme_minimal() +
     theme(axis.text.x = element_text(angle = 45, hjust = 1))
-    ggsave("./data/graphique_richesse.pdf", plot = graphique_richesse, width = 8, height = 8)
+    ggsave("./data/graphique_richesse.png", plot = graphique_richesse, width = 8, height = 8)
 }

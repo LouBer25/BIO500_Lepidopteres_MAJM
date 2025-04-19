@@ -22,5 +22,5 @@ graph_latitude_annee <- function(requete) {
     coord_cartesian(ylim = c(40, 60)) +  # Limiter l'axe y
     theme(axis.text.x = element_text(angle = 45, hjust = 1),  # Rotation des étiquettes de l'axe x
           strip.text.x = element_text(size = 12))  # Ajuster la taille du texte des titres des facettes
-    ggsave("./data/graphique_latitude.pdf", plot = graphique_latitude, width = 8, height = 8)
+    ggsave("./data/graphique_latitude.png", plot = graphique_latitude, width = 8, height = 8)
 }

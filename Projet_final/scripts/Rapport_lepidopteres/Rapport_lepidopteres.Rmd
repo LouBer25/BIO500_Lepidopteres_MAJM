@@ -3,7 +3,7 @@ title: "Influence des changements climatiques sur les variations spatiotemporell
 
 author:
   - name: "Marilou Bernard, Juliette Boucher, Maité-Simon Gauthier-Bénard, Alexandre Tougas"
-    affiliation: Université de Sherbrooke, Département de biologie, BIO500
+    affiliation: "Université de Sherbrooke, Département de biologie, BIO500"
 
 date: "22-04-2025"
 
@@ -16,10 +16,11 @@ bibliography: pnas-sample.bib
 output: rticles::pnas_article
 ---
 
-
+\vspace{-10pt}
  **Résumé**
  
  Il a bien établi que la biodiversité est affectée par les changements climatiques, et les lépidoptères n’échappent pas à cette tendance. Ce groupe joue un rôle important pour les écosystèmes et pour les humains, notamment en tant que des pollinisateurs. Cependant, leur répartition spatiotemporelle est influencée par plusieurs facteurs environnementaux et anthropiques. En effet, les résultats présentés dans ce rapport indiquent que les aires de répartition de certaines espèces se déplacent vers des latitudes plus nordiques, et que des diminutions importantes dans le nombre d’espèces ont été observées au courant des dernières décennies. De plus, la distribution des lépidoptères au Québec est davantage concentrée en milieux plus urbains, près du fleuve Saint-Laurent. Ces résultats soulignent l’importance d’instaurer des protocoles standardisés de collecte de données afin d’assurer des suivis à long terme des effets des changements climatiques sur différentes communautés. 
+
 
 **Introduction** 
 
@@ -34,9 +35,6 @@ L’analyse des données a été réalisée à l’aide du logiciel RStudio. Dan
 
 **Résultats**
  
-## Résultats
-
-
 
 
 
@@ -69,7 +67,6 @@ Finalement, la Figure 3 démontre une forte richesse spécifique de lépidoptèr
 
 
 
-
 **Conclusion**
 
 En conclusion, la structure des communautés de lépidoptères au Québec est affectée par des changements spatio-temporels. En effet, les aires de répartition de certaines espèces sont influencées par le réchauffement climatique et se déplacent vers le nord, ce qui permet de confirmer la première hypothèse. Toutefois, bien que le nombre d’espèces de lépidoptères observées semble augmenter au fil des années, des diminutions importantes depuis les dernières décennies invalident partiellement la deuxième hypothèse. La dernière hypothèse peut être confirmée, car la distribution de la richesse spécifique des lépidoptères au Québec est plus concentrée dans le sud de la province, près des régions urbaines. Ces variations démontrent la sensibilité des lépidoptères aux changements environnementaux et illustrent la réponse de la biodiversité face aux pressions anthropiques. Pour limiter ces impacts, il est essentiel de maintenir des milieux hétérogènes, de limiter la fragmentation des habitats et de favoriser leur connectivité [@LopezVazquez2024]. Par ailleurs, la mise en place de protocoles de collecte de données et la réduction de biais d’échantillonnage sont primordiales afin d’assurer un suivi à long terme fiable de l’évolution des communautés face aux changements climatiques.  
@@ -80,5 +77,4 @@ En conclusion, la structure des communautés de lépidoptères au Québec est af
 
 
 \showmatmethods
-\showacknow
 \pnasbreak

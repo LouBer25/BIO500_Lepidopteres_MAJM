@@ -1,281 +1,85 @@
 ---
-title: Template for preparing your research report submission to PNAS using RMarkdown
+title: "Influence des changements climatiques sur les variations spatiotemporelles et la structure des communautés de lépidoptères au Québec"
 
-# Use letters for affiliations, numbers to show equal authorship (if applicable) and to indicate the corresponding author
 author:
-  - name: Maïté
-    affiliation: a,1,2
-  - name: Bob Security
-    affiliation: a,b
-address:
-  - code: a
-    address: Some Institute of Technology, Department, Street, City, State, Zip
-  - code: b
-    address: Another University Department, Street, City, State, Zip
+  - name: "Marilou Bernard, Juliette Boucher, Maité-Simon Gauthier-Bénard, Alexandre Tougas"
+    affiliation: Université de Sherbrooke, Département de biologie, BIO500
 
-corresponding_author:
-  code: 2
-  text: "To whom correspondence should be addressed. E-mail: bob@email.com"
-
-# For footer text
-lead_author_surname: Anonymous
-
-## Remove this if not required    
-equal_authors:
-  code: 1
-  text: "A.O.(Author One) and A.T. (Author Two) contributed equally to this work (remove if not applicable)."
+date: "22-04-2025"
 
 
-author_contributions: |
-  Please provide details of author contributions here.
-
-## Remove this if not required
-conflict_of_interest: |
-  Please declare any conflict of interest here.
-
-abstract: |
-  Please provide an abstract of no more than 250 words in a single paragraph. Abstracts should explain to the general reader the major contributions of the article. References in the abstract must be cited in full within the abstract itself and cited in the text.
-
-
-significance: |
-  Authors must submit a 120-word maximum statement about the significance of their research paper written at a level understandable to an undergraduate educated scientist outside their field of speciality. The primary goal of the Significance Statement is to explain the relevance of the work in broad context to a broad readership. The Significance Statement appears in the paper itself and is required for all research papers.
-
-acknowledgements: |
-  Please include your acknowledgments here, set in a single paragraph. Please do not include any acknowledgments in the Supporting Information, or anywhere else in the manuscript.
-
-keywords:
-  - one
-  - two
-  - optional
-  - optional
-  - optional
-
-## must be one of: pnasresearcharticle (usual two-column layout), pnasmathematics (one column layout), or pnasinvited (invited submissions only)
 pnas_type: pnasresearcharticle
 
 bibliography: pnas-sample.bib
-csl: pnas.csl
 
-## change to true to add optional line numbering
-lineno: false
 
 output: rticles::pnas_article
 ---
 
 
-This PNAS journal template is provided to help you write your work in the
-correct journal format. Instructions for use are provided below.
+ **Résumé**
+ 
+ Il a bien établi que la biodiversité est affectée par les changements climatiques, et les lépidoptères n’échappent pas à cette tendance. Ce groupe joue un rôle important pour les écosystèmes et pour les humains, notamment en tant que des pollinisateurs. Cependant, leur répartition spatiotemporelle est influencée par plusieurs facteurs environnementaux et anthropiques. En effet, les résultats présentés dans ce rapport indiquent que les aires de répartition de certaines espèces se déplacent vers des latitudes plus nordiques, et que des diminutions importantes dans le nombre d’espèces ont été observées au courant des dernières décennies. De plus, la distribution des lépidoptères au Québec est davantage concentrée en milieux plus urbains, près du fleuve Saint-Laurent. Ces résultats soulignent l’importance d’instaurer des protocoles standardisés de collecte de données afin d’assurer des suivis à long terme des effets des changements climatiques sur différentes communautés. 
 
-Note: please start your introduction without including the word
-"Introduction" as a section heading (except for math articles in the
-Physical Sciences section); this heading is implied in the first
-paragraphs.
+**Introduction** 
 
-Guide to using this template {.unnumbered}
-========================================
-
-Please note that whilst this template provides a preview of the typeset
-manuscript for submission, to help in this preparation, it will not
-necessarily be the final publication layout. For more detailed
-information please see the [PNAS Information for
-Authors](http://www.pnas.org/site/authors/format.xhtml).
+Les lépidoptères constituent un groupe d’insectes diversifié qui occupe une place essentielle dans les écosystèmes. En effet, ils jouent un rôle important en contribuant au cycle des nutriments et à la décomposition de la matière organique, en plus de servir de proies pour des espèces d’oiseaux [@LopezVazquez2024]. En étant des pollinisateurs, les lépidoptères jouent également un rôle économique en favorisant le maintien des cultures de fruits et de plantes [@Haris2024]. En raison de leurs relations avec les plantes hôtes, les lépidoptères sont d’excellents bioindicateurs de la qualité d’un habitat et des impacts des changements environnementaux [@LopezVazquez2024]. Cependant, leur physiologie ectotherme les rend particulièrement vulnérables aux variations climatiques [@Hussain2022]. La modification des environnements causée par les changements climatiques perturbe les écosystèmes, et cela provoque des conséquences pour plusieurs espèces [@Andrieux2016]. Selon @Haris2024, les principales pressions sur les communautés de lépidoptères sont les changements climatiques, qui sont en partie causés par des actions anthropiques, ainsi que la fragmentation d’habitats et l’utilisation de pesticides. Le but de ce rapport est d’évaluer comment les variations spatiales et temporelles influencent la composition et la structure des communautés de Lépidoptères au Québec. La première hypothèse stipule que les limites des distributions des espèces se déplacent vers le nord au travers du temps. La deuxième hypothèse stipule que la richesse des espèces augmente au travers du temps. Finalement, la dernière hypothèse stipule que la distribution spatiale des lépidoptères au Québec est plus concentrée dans les régions urbaines. 
 
 
-Author Affiliations {#author-affiliations .unnumbered}
--------------------
+**Méthode**
 
-Include department, institution, and complete address, with the
-ZIP/postal code, for each author. Use lower case letters to match
-authors with institutions, as shown in the example. Authors with an
-ORCID ID may supply this information at submission.
-
-Submitting Manuscripts {#submitting-manuscripts .unnumbered}
-----------------------
-
-All authors must submit their articles at
-[PNAScentral](http://www.pnascentral.org/cgi-bin/main.plex). If you are
-using Overleaf to write your article, you can use the "Submit to PNAS"
-option in the top bar of the editor window.
-
-Format {#format .unnumbered}
-------
-
-Many authors find it useful to organize their manuscripts with the
-following order of sections; Title, Author Affiliation, Keywords,
-Abstract, Significance Statement, Results, Discussion, Materials and
-methods, Acknowledgments, and References. Other orders and headings are
-permitted.
-
-Manuscript Length {#manuscript-length .unnumbered}
------------------
-
-PNAS generally uses a two-column format averaging 67 characters,
-including spaces, per line. The maximum length of a Direct Submission
-research article is six pages and a PNAS PLUS research article is ten
-pages including all text, spaces, and the number of characters displaced
-by figures, tables, and equations. When submitting tables, figures,
-and/or equations in addition to text, keep the text for your manuscript
-under 39,000 characters (including spaces) for Direct Submissions and
-72,000 characters (including spaces) for PNAS PLUS.
-
-References {#references .unnumbered}
-----------
-
-References should be cited in numerical order as they appear in text;
-this will be done automatically via bibtex, e.g. @belkin2002using and
-@berard1994embedding [@coifman2005geometric]. All references, including
-for the SI, should be included in the main manuscript file. References
-appearing in both sections should not be duplicated. SI references
-included in tables should be included with the main reference section.
-
-Data Archival {#data-archival .unnumbered}
--------------
-
-PNAS must be able to archive the data essential to a published article.
-Where such archiving is not possible, deposition of data in public
-databases, such as GenBank, ArrayExpress, Protein Data Bank, Unidata,
-and others outlined in the Information for Authors, is acceptable.
+L’analyse des données a été réalisée à l’aide du logiciel RStudio. Dans un premier temps, des fichiers CSV, couvrant les années 1859 à 2023 et contenant des observations de lépidoptères, ont été assemblés afin de constituer une base de données complète. Par la suite, une phase de traitement a été effectuée, au cours de laquelle des fonctions ont été créées pour corriger, nettoyer et uniformiser les données. Différentes tables ont ensuite été extraites à partir de la base de données en sélectionnant seulement les données pertinentes aux analyses, à l’aide de requêtes formulées en langage SQL. Finalement, ces tables spécifiques ont permis de générer les figures répondant à nos hypothèses. Il est important de noter l’utilisation de ChatGPT afin d’assister dans la résolution des erreurs de programmation. 
 
 
 
-Language-Editing Services {#language-editing-services .unnumbered}
--------------------------
+**Résultats**
+ 
+## Résultats
 
-Prior to submission, authors who believe their manuscripts would benefit
-from professional editing are encouraged to use a language-editing
-service (see list at www.pnas.org/site/authors/language-editing.xhtml).
-PNAS does not take responsibility for or endorse these services, and
-their use has no bearing on acceptance of a manuscript for publication.
 
-![Placeholder image of a frog with a long example caption to show
-justification setting.<span data-label="fig:frog"></span>](frog.png)
+![Figure 1 : Variation des latitudes du territoire de quatre espèces de lépidoptères (Cercyonis pegala, Colias philodice, Pieris rapae et Poanes hobomok) par période de 20 ans de 1860 à 2020. ](images/Figure1.png){width=50% height=40%}
 
-Digital Figures {#sec:figures .unnumbered}
----------------
 
-Only TIFF, EPS, and high-resolution PDF for Mac or PC are allowed for
-figures that will appear in the main text, and images must be final
-size. Authors may submit U3D or PRC files for 3D images; these must be
-accompanied by 2D representations in TIFF, EPS, or high-resolution PDF
-format. Color images must be in RGB (red, green, blue) mode. Include the
-font files for any text.
+Dans la Figure 1, il est possible d’observer que *Cercyonis pegala* est l’espèce où les latitudes de son territoire ont le plus varié entre 2000 et 2020. De plus, on remarque que, pour les quatre espèces, les latitudes entre 2000 et 2020 ont augmenté vers le nord. *Colias philodice* est la seule espèce avec une grande variation dans les latitudes de son territoire dans les années 1880.
 
-Figures and Tables should be labelled and referenced in the standard way
-using the `\label{}` and `\ref{}` commands.
+---
 
-Figure \[fig:frog\] shows an example of how to insert a column-wide
-figure. To insert a figure wider than one column, please use the
-`\begin{figure*}...\end{figure*}` environment. Figures wider than one
-column should be sized to 11.4 cm or 17.8 cm wide.
 
-Single column equations {#single-column-equations .unnumbered}
------------------------
+![Figure 2 : Variation du nombre d’espèces de lépidoptères observées selon les années](images/Figure2.png){width=50% height=40%}
 
-Authors may use 1- or 2-column equations in their article, according to
-their preference.
+Dans la Figure 2, on remarque une augmentation du nombre d’espèces de lépidoptères observées au fil des années. En effet, de 1860 à 1950, le nombre d’espèces a peu varié, et celui-ci a commencé à augmenter entre 1950 et 2000. Une augmentation drastique peut être aperçue à partir des années 2000, où le nombre d’espèces observées est passé d’environ 250 individus à plus de 1500. Cependant, entre les années 2000 et 2020, des fluctuations peuvent être observées, où le nombre d’espèces diminue à moins de 500 individus.
 
-To allow an equation to span both columns, options are to use the
-`\begin{figure*}...\end{figure*}` environment mentioned above for
-figures, or to use the `\begin{widetext}...\end{widetext}` environment
-as shown in equation \[eqn:example\] below.
+---
 
-Please note that this option may run into problems with floats and
-footnotes, as mentioned in the [cuted package
-documentation](http://texdoc.net/pkg/cuted). In the case of problems
-with footnotes, it may be possible to correct the situation using
-commands `\footnotemark` and `\footnotetext`.
 
-$$\begin{aligned}
-(x+y)^3&=(x+y)(x+y)^2\\
-       &=(x+y)(x^2+2xy+y^2) \label{eqn:example} \\
-       &=x^3+3x^2y+3xy^3+x^3. 
-\end{aligned}$$
+![Figure 3 : Distribution de la richesse spécifique des lépidoptères au Québec en 2020](images/Figure3.png){width=50% height=40%}
+
+Dans la Figure 3, il est possible d’observer la distribution de la richesse spécifique des lépidoptères au Québec en 2020. On remarque que l’endroit où le nombre d’espèces est le plus élevé, soit près de 600, est au nord-ouest de la province, près de 48°N et 80°W. Toutefois, des richesses spécifiques d’environ 500 espèces sont retrouvées à l’ouest, au sud et à l’est de la province. Il est également possible de remarquer qu’il y a une plus forte concentration dans le sud de la province, près du fleuve Saint-Laurent, que dans le nord de la province.
+
+
+**Discussion **
+
+Il est possible de confirmer un déplacement spatial modéré vers le nord dans la distribution de certaines espèces de lépidoptères (Figure 1). Selon @BernabeRuiz2024, l’augmentation des températures peut favoriser une migration vers des latitudes plus élevées ainsi qu’une expansion des aires de répartition. En effet, le déplacement de certaines espèces vers des répartitions plus nordiques peut indiquer que les conditions environnementales y deviennent plus favorables, en réponse au réchauffement des habitats d’origine [@Haris2024]. Plusieurs facteurs peuvent expliquer cette migration, notamment les variations plus extrêmes des températures, l’irrégularité des précipitations entraînant des sécheresses et des inondations, ainsi que la dégradation des habitats [@Haris2024]. Cependant, différentes espèces de lépidoptères vont réagir de manières différentes face aux changements climatiques en fonction de leurs préférences alimentaires, de leurs exigences pour l’habitat et de leur relation avec les plantes hôtes [@Hussain2022]. Puisque la température est un facteur limitant les aires de répartition des plantes hôtes, ceci peut également limiter les aires de distribution des lépidoptères, indépendamment de leur tolérance au réchauffement climatique [@White2005]. Selon @Andrieux2016, la corrélation entre la température et la biodiversité pourrait entraîner le déplacement des aires de répartition de plusieurs espèces au Québec, ce qui pourrait expliquer en partie les tendances observées dans la Figure 1. 
+
+
+Il est également possible de confirmer une augmentation du nombre d’espèces de lépidoptères observées au fil des années (Figure 2). Bien que cette augmentation puisse être influencée par des facteurs écologiques, l’amélioration de l’effort d’échantillonnage est probablement l’une des causes principales des résultats obtenus. En effet, les données utilisées proviennent de base de données ouvertes, compilant des observations de plusieurs individus. Puisqu’il y a eu une augmentation significative de l’effort d’échantillonnage dans les dernières années, il est normal que le nombre d’espèces ait augmenté (Figure 2). Toutefois, les fluctuations observées entre les années 2000 et 2020 peuvent être expliquées par plusieurs facteurs, dont les changements climatiques. Selon @Haris2024, différents groupes de pollinisateurs réagissent différemment, mais la majorité des familles de lépidoptères a connu un déclin au cours des deux dernières décennies. En effet, des études menées dans l’État de Ohio ont démontré qu’entre 1997 et 2017, la densité de 40% des espèces de lépidoptères avait diminué [@Haris2024], ce qui concorde partiellement avec les résultats obtenus dans la Figure 2. 
+
+
+Finalement, la Figure 3 démontre une forte richesse spécifique de lépidoptères concentrée dans le sud du Québec, près du fleuve Saint-Laurent. Cette distribution illustre l’influence des conditions écologiques locales sur la densité de lépidoptères. En effet, selon @White2005, la richesse spécifique des lépidoptères augmente dans les pâturages, par rapport aux zones agricoles autour des cultures. De plus, la fragmentation d’habitat semble être un facteur important pour la distribution des lépidoptères, car la richesse spécifique des espèces décroît lorsque la distance entre les habitats favorables augmente [@White2005]. Puisque les différentes espèces de lépidoptères ont différentes préférences quant à leur habitat, une hétérogénéité élevée des habitats favorise une richesse spécifique élevée [@White2005]. Selon @BernabeRuiz2024, 80% de la variance de richesse spécifique peut être expliquée par les changements climatiques, et ce phénomène est plus marqué dans les milieux ouverts, notamment en raison de l’abandon de pâturage et de la fauche. De plus, les lisières constituent des endroits privilégiés par les lépidoptères grâce à leur abondance de ressources alimentaires, la température et l’humidité [@Ruchin2023]. Ces différents facteurs écologiques peuvent expliquer la distribution concentrée de richesse spécifique de lépidoptères au sud du Québec, mais un facteur non-négligeable est le biais d’échantillonnage qui reflète le manque de données dans le nord de la province. 
 
 
 
-<!-- pandoc writes all tables using longtable, which fails in 2-column mode
-
-  Species                    CBS     CV     G3
-  ----------------------- ------ ------ ------
-  1\. Acetaldehyde           0.0    0.0    0.0
-  2\. Vinyl alcohol          9.1    9.6   13.5
-  3\. Hydroxyethylidene     50.8   51.2   54.0
-
-  : Comparison of the fitted potential energy surfaces and ab initio
-  benchmark electronic energy calculations
-
--->
-
-Supporting Information (SI) {#supporting-information-si .unnumbered}
----------------------------
 
 
-The main text of the paper must stand on its own without the SI. Refer
-to SI in the manuscript at an appropriate point in the text. Number
-supporting figures and tables starting with S1, S2, etc. Authors are
-limited to no more than 10 SI files, not including movie files. Authors
-who place detailed materials and methods in SI must provide sufficient
-detail in the main text methods to enable a reader to follow the logic
-of the procedures and results and also must reference the online
-methods. If a paper is fundamentally a study of a new method or
-technique, then the methods must be described completely in the main
-text. Because PNAS edits SI and composes it into a single PDF, authors
-must provide the following file formats only.
+**Conclusion**
 
-### SI Text {#si-text .unnumbered}
-
-Supply Word, RTF, or LaTeX files (LaTeX files must be accompanied by a
-PDF with the same file name for visual reference).
-
-### SI Figures {#si-figures .unnumbered}
-
-Provide a brief legend for each supporting figure after the supporting
-text. Provide figure images in TIFF, EPS, high-resolution PDF, JPEG, or
-GIF format; figures may not be embedded in manuscript text. When saving
-TIFF files, use only LZW compression; do not use JPEG compression. Do
-not save figure numbers, legends, or author names as part of the image.
-Composite figures must be pre-assembled.
-
-### 3D Figures {#d-figures .unnumbered}
-
-Supply a composable U3D or PRC file so that it may be edited and
-composed. Authors may submit a PDF file but please note it will be
-published in raw format and will not be edited or composed.
-
-### SI Tables {#si-tables .unnumbered}
-
-Supply Word, RTF, or LaTeX files (LaTeX files must be accompanied by a
-PDF with the same file name for visual reference); include only one
-table per file. Do not use tabs or spaces to separate columns in Word
-tables.
-
-### SI Datasets {#si-datasets .unnumbered}
-
-Supply Excel (.xls), RTF, or PDF files. This file type will be published
-in raw format and will not be edited or composed.
-
-### SI Movies {#si-movies .unnumbered}
-
-Supply Audio Video Interleave (avi), Quicktime (mov), Windows Media
-(wmv), animated GIF (gif), or MPEG files and submit a brief legend for
-each movie in a Word or RTF file. All movies should be submitted at the
-desired reproduction size and length. Movies should be no more than 10
-MB in size.
-
-### Still images {#still-images .unnumbered}
-
-Authors must provide a still image from each video file. Supply TIFF,
-EPS, high-resolution PDF, JPEG, or GIF files.
-
-### Appendices {#appendices .unnumbered}
-
-PNAS prefers that authors submit individual source files to ensure
-readability. If this is not possible, supply a single PDF file that
-contains all of the SI associated with the paper. This file type will be
-published in raw format and will not be edited or composed.
+En conclusion, la structure des communautés de lépidoptères au Québec est affectée par des changements spatio-temporels. En effet, les aires de répartition de certaines espèces sont influencées par le réchauffement climatique et se déplacent vers le nord, ce qui permet de confirmer la première hypothèse. Toutefois, bien que le nombre d’espèces de lépidoptères observées semble augmenter au fil des années, des diminutions importantes depuis les dernières décennies invalident partiellement la deuxième hypothèse. La dernière hypothèse peut être confirmée, car la distribution de la richesse spécifique des lépidoptères au Québec est plus concentrée dans le sud de la province, près des régions urbaines. Ces variations démontrent la sensibilité des lépidoptères aux changements environnementaux et illustrent la réponse de la biodiversité face aux pressions anthropiques. Pour limiter ces impacts, il est essentiel de maintenir des milieux hétérogènes, de limiter la fragmentation des habitats et de favoriser leur connectivité [@LopezVazquez2024]. Par ailleurs, la mise en place de protocoles de collecte de données et la réduction de biais d’échantillonnage sont primordiales afin d’assurer un suivi à long terme fiable de l’évolution des communautés face aux changements climatiques.  
 
 
-<!-- Leave these lines as they are at the end of your .Rmd file to ensure placement of methods & acknowledgements sections before the references-->
+# Références
+
+
+
 \showmatmethods
 \showacknow
 \pnasbreak

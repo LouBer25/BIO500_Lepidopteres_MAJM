@@ -37,7 +37,7 @@ L’analyse des données a été réalisée à l’aide du logiciel RStudio. Dan
 ## Résultats
 
 
-![Figure 1 : Variation des latitudes du territoire de quatre espèces de lépidoptères (Cercyonis pegala, Colias philodice, Pieris rapae et Poanes hobomok) par période de 20 ans de 1860 à 2020. ](images/Figure1.png){width=50% height=40%}
+
 
 
 Dans la Figure 1, il est possible d’observer que *Cercyonis pegala* est l’espèce où les latitudes de son territoire ont le plus varié entre 2000 et 2020. De plus, on remarque que, pour les quatre espèces, les latitudes entre 2000 et 2020 ont augmenté vers le nord. *Colias philodice* est la seule espèce avec une grande variation dans les latitudes de son territoire dans les années 1880.
@@ -45,14 +45,13 @@ Dans la Figure 1, il est possible d’observer que *Cercyonis pegala* est l’es
 ---
 
 
-![Figure 2 : Variation du nombre d’espèces de lépidoptères observées selon les années](images/Figure2.png){width=50% height=40%}
 
 Dans la Figure 2, on remarque une augmentation du nombre d’espèces de lépidoptères observées au fil des années. En effet, de 1860 à 1950, le nombre d’espèces a peu varié, et celui-ci a commencé à augmenter entre 1950 et 2000. Une augmentation drastique peut être aperçue à partir des années 2000, où le nombre d’espèces observées est passé d’environ 250 individus à plus de 1500. Cependant, entre les années 2000 et 2020, des fluctuations peuvent être observées, où le nombre d’espèces diminue à moins de 500 individus.
 
 ---
 
 
-![Figure 3 : Distribution de la richesse spécifique des lépidoptères au Québec en 2020](images/Figure3.png){width=50% height=40%}
+
 
 Dans la Figure 3, il est possible d’observer la distribution de la richesse spécifique des lépidoptères au Québec en 2020. On remarque que l’endroit où le nombre d’espèces est le plus élevé, soit près de 600, est au nord-ouest de la province, près de 48°N et 80°W. Toutefois, des richesses spécifiques d’environ 500 espèces sont retrouvées à l’ouest, au sud et à l’est de la province. Il est également possible de remarquer qu’il y a une plus forte concentration dans le sud de la province, près du fleuve Saint-Laurent, que dans le nord de la province.
 

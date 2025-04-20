@@ -1,9 +1,9 @@
 ---
 title: "Influence des changements climatiques sur les variations spatiotemporelles et la structure des communautés de lépidoptères au Québec"
 
-author:
-  - name: "Marilou Bernard, Juliette Boucher, Maité-Simon Gauthier-Bénard, Alexandre Tougas"
-    affiliation: "Université de Sherbrooke, Département de biologie, BIO500"
+author: 
+  - name: "Marilou Bernard, Juliette Boucher, Maité-Simone Gauthier-Bénard, Alexandre Tougas"
+
 
 date: "22-04-2025"
 
@@ -16,7 +16,14 @@ bibliography: pnas-sample.bib
 output: rticles::pnas_article
 ---
 
-\vspace{-10pt}
+\maketitle
+
+ \vspace{-45pt} 
+\noindent
+\textbf{Affiliation:} Université de Sherbrooke, Département de biologie, BIO500
+
+\vspace{15pt}  
+
  **Résumé**
  
  Il a bien établi que la biodiversité est affectée par les changements climatiques, et les lépidoptères n’échappent pas à cette tendance. Ce groupe joue un rôle important pour les écosystèmes et pour les humains, notamment en tant que des pollinisateurs. Cependant, leur répartition spatiotemporelle est influencée par plusieurs facteurs environnementaux et anthropiques. En effet, les résultats présentés dans ce rapport indiquent que les aires de répartition de certaines espèces se déplacent vers des latitudes plus nordiques, et que des diminutions importantes dans le nombre d’espèces ont été observées au courant des dernières décennies. De plus, la distribution des lépidoptères au Québec est davantage concentrée en milieux plus urbains, près du fleuve Saint-Laurent. Ces résultats soulignent l’importance d’instaurer des protocoles standardisés de collecte de données afin d’assurer des suivis à long terme des effets des changements climatiques sur différentes communautés. 

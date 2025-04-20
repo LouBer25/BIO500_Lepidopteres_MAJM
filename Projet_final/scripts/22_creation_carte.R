@@ -1,13 +1,13 @@
-# 22) Fonction pour la création de la carte
+# 22) Fonction pour la création de la carte pour l'année 2020
 
 graph_carte <- function(requete) {
   carte <- requete[[3]]
-  # Vérification des colonnes
+  # Vérification des colonnes afin d'éviter des bugs
   if (!all(c("latitude", "longitude", "nombre_especes") %in% colnames(carte))) {
     stop("Le tableau 'carte' doit contenir les colonnes : latitude, longitude, nombre_especes")
   }
   
-  # Étape 1: Regrouper les observations par case arrondie
+  # Regrouper le nombre d'espèce par secteur
   df <- carte %>%
     mutate(
       lat_arrondi = floor(latitude),
@@ -16,27 +16,27 @@ graph_carte <- function(requete) {
     group_by(lat_arrondi, lon_arrondi) %>%
     summarise(total_especes = sum(nombre_especes), .groups = "drop")
   
-  # Étape 2: Transformer en objet spatial pour ggplot
+  # Transformer en donnée géospatial
   df_sf <- st_as_sf(df, coords = c("lon_arrondi", "lat_arrondi"), crs = 4326)
   
-  # Étape 3: Récupérer le contour du Canada
+  # Acquisition des données de contour du Canada
   canada <- ne_states(country = "Canada", returnclass = "sf")
   
-  # Étape 4: Extraire seulement le Québec
+  # Extraire seulement le Québec des données Canada
   quebec <- canada %>% filter(name_en == "Quebec")
   
-  # Étape 5: Afficher la carte avec ggplot
+  # Création de la carte avec ggplot
   graphique_carte <- ggplot() +
-    # Contour du Québec avec bordure élégante
+    # Ajouter les contours du Québec au graphique afin d'obetenir un visuel graphique des données
     geom_sf(data = quebec, fill = NA, color = "darkblue", size = 1.2) +
     
     # Points de données (richesse spécifique) avec taille et couleur
     geom_sf(data = df_sf, aes(size = total_especes, color = total_especes), alpha = 0.7) +
     
-    # Ajouter la palette de couleurs viridis
+    # Ajouter les couleurs en fonction du nombre d'espèce
     scale_color_viridis(option = "C", direction = 1, name = "Nombre d'espèces") +
     
-    # Taille des points
+    # Range des tailles des données
     scale_size_continuous(range = c(2, 8), name = "Nombre d'espèces") +
     
     # Titres et légendes
@@ -46,7 +46,7 @@ graph_carte <- function(requete) {
       size = "Nombre\nD'espèces"
     ) +
     
-    # Personnalisation du fond et de la grille
+    #Personaliser le fond et la grille pour un visuel plus original
     theme_minimal() +
     theme(
       plot.title = element_text(size = 16, face = "bold", color = "darkblue", hjust = 0.5),
@@ -58,7 +58,7 @@ graph_carte <- function(requete) {
       axis.text = element_text(size = 10, color = "gray40")
     ) +
     
-    # Coordonnées et zoom sur le Québec
+    # Afficher seulement la partie du Québec selon les données
     coord_sf(xlim = c(-81, -56), ylim = c(44, 54), expand = FALSE)
     ggsave("./data/graphique_carte.png", plot = graphique_carte, width = 10, height = 8)
 }

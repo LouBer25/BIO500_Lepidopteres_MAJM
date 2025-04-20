@@ -24,5 +24,5 @@ graph_latitude_annee <- function(requete) {
     theme(axis.text.x = element_text(angle = 45, hjust = 1),  # Ajouter une angle dans les étiquettes pour un meilleur visuel
           strip.text.x = element_text(size = 12))  # Ajuster les tailles
   #Enregistrer le graphique en png  
-  ggsave("./Analyses/graphique_latitude.png", plot = graphique_latitude, width = 8, height = 8)
+  ggsave("./scripts/Rapport_lepidopteres/graphique_latitude.png", plot = graphique_latitude, width = 8, height = 8)
 }

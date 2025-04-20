@@ -10,5 +10,5 @@ graph_richesse_specifique <- function(requete) {
     theme_minimal() +
     theme(axis.text.x = element_text(angle = 45, hjust = 1))
     #Enregistrer le graphique en png 
-    ggsave("./Analyses/graphique_richesse.png", plot = graphique_richesse, width = 8, height = 8)
+    ggsave("./scripts/Rapport_lepidopteres/graphique_richesse.png", plot = graphique_richesse, width = 8, height = 8)
 }

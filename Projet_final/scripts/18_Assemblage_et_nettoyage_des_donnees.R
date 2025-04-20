@@ -25,7 +25,7 @@ assemblage_donnees <- function(lepido_BD){
   lepido_new <- remplacer_obs_variable(lepido_new)
 
   # g) Ajouter le code itis au tableau taxonomie
-  taxonomie_table <- tableau_taxonomie("./tables_pour_SQL/taxonomie_test.csv")
+  taxonomie_table <- tableau_taxonomie("./tables_pour_SQL/taxonomie.csv")
 
   #Ouverture du fichier taxonomie_BD
   taxonomie_BD <- read.csv("./tables_pour_SQL/taxonomie_BD.csv")

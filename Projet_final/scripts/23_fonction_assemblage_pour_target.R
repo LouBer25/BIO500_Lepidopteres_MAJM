@@ -1,13 +1,20 @@
 setwd("C:/Users/marbe/Desktop/UdeS Hiver 2025/Méthodes en écologie computationnelle/BIO500_Lepidopteres_MAJM/Projet_final")
 
-
-library(dplyr)              #Cela est plus optimisé que des boucle, sinon se sera trop long à générer
+  #install.packages("dplyr")
+  library(dplyr)              #Cela est plus optimisé que des boucle, sinon se sera trop long à générer
+  #install.packages("ritis")
   library(ritis)              #Transformer les noms scientifiques en code ITIS.
+  #install.packages("purrr")
   library(purrr)              #Optimiser le trajet en pouvant manipuler les listes.
+  #install.packages("furrr")
   library(furrr)              #Pour exécuter en parallèle la fonction "purrr"
+  #install.packages("future")
   library(future)             #Exécuter furrr
+  #install.packages("readr")
   library(readr)
+  #install.packages("RSQLite")
   library(RSQLite)
+  #install.packages("terra")
   library(terra)
   #install.packages("ggplot2")
   library(ggplot2)

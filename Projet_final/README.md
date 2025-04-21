@@ -1,3 +1,17 @@
+# Projet de session sur les lépidoptères
+_Créé par Marilou Bernard, Juliette Boucher, Maïté-Simone Gauthier-Bénard et Alexandre Tougas_
+
+Dans le cadre du cours BIO500 - Méthodes en écologie computationnelle, nous devions réaliser une analyse des changements de biodiversité au Québec,
+nous avons choisi le sujet des lépidoptères qui nous intéressait particulièrement. Nous avons tenté de répondre à la question suivante :
+**Comment les variations spatiales et temporelles influent-elles sur la structure des communauté?**
+
+
+Pour ce faire, nous avons compilé et nettoyé les données brutes de Biodiversité Québec. Nous les avons ensuite entreposées dans une base de données
+SQL.
+
+
+
+
 # Observations de lépidoptères
 
 Ce jeu de données présente des observations de lépidoptères dans le temps et l'espace. Ces données sont fidèles à ce qu'on peut s'attendre d'une extraction de sources différentes et peuvent contenir des erreurs. Notez qu'elles ont déjà été standardisées pour vous.

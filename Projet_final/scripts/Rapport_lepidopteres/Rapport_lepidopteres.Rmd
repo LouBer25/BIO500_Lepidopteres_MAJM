@@ -1,11 +1,12 @@
 ---
 title: "Influence des changements climatiques sur les variations spatiotemporelles et la structure des communautés de lépidoptères au Québec"
 
-author:
-  - name: "Marilou Bernard, Juliette Boucher, Maité-Simon Gauthier-Bénard, Alexandre Tougas"
-    affiliation: Université de Sherbrooke, Département de biologie, BIO500
+author: 
+  - name: "Marilou Bernard¹, Juliette Boucher¹, Maité-Simone Gauthier-Bénard¹, Alexandre Tougas¹"
 
-date: "22-04-2025"
+
+
+date: "22 avril 2025"
 
 
 pnas_type: pnasresearcharticle
@@ -13,29 +14,37 @@ pnas_type: pnasresearcharticle
 bibliography: pnas-sample.bib
 
 
-output: rticles::pnas_article
+output: rticles::pnas_article 
+  
+   
 ---
 
+\maketitle
+
+ \vspace{-45pt} 
+\noindent
+\textbf{1:} Université de Sherbrooke, Département de biologie, BIO500
+
+\vspace{15pt}  
 
  **Résumé**
  
  Il a bien établi que la biodiversité est affectée par les changements climatiques, et les lépidoptères n’échappent pas à cette tendance. Ce groupe joue un rôle important pour les écosystèmes et pour les humains, notamment en tant que des pollinisateurs. Cependant, leur répartition spatiotemporelle est influencée par plusieurs facteurs environnementaux et anthropiques. En effet, les résultats présentés dans ce rapport indiquent que les aires de répartition de certaines espèces se déplacent vers des latitudes plus nordiques, et que des diminutions importantes dans le nombre d’espèces ont été observées au courant des dernières décennies. De plus, la distribution des lépidoptères au Québec est davantage concentrée en milieux plus urbains, près du fleuve Saint-Laurent. Ces résultats soulignent l’importance d’instaurer des protocoles standardisés de collecte de données afin d’assurer des suivis à long terme des effets des changements climatiques sur différentes communautés. 
+\vspace{10pt}  
 
 **Introduction** 
 
 Les lépidoptères constituent un groupe d’insectes diversifié qui occupe une place essentielle dans les écosystèmes. En effet, ils jouent un rôle important en contribuant au cycle des nutriments et à la décomposition de la matière organique, en plus de servir de proies pour des espèces d’oiseaux [@LopezVazquez2024]. En étant des pollinisateurs, les lépidoptères jouent également un rôle économique en favorisant le maintien des cultures de fruits et de plantes [@Haris2024]. En raison de leurs relations avec les plantes hôtes, les lépidoptères sont d’excellents bioindicateurs de la qualité d’un habitat et des impacts des changements environnementaux [@LopezVazquez2024]. Cependant, leur physiologie ectotherme les rend particulièrement vulnérables aux variations climatiques [@Hussain2022]. La modification des environnements causée par les changements climatiques perturbe les écosystèmes, et cela provoque des conséquences pour plusieurs espèces [@Andrieux2016]. Selon @Haris2024, les principales pressions sur les communautés de lépidoptères sont les changements climatiques, qui sont en partie causés par des actions anthropiques, ainsi que la fragmentation d’habitats et l’utilisation de pesticides. Le but de ce rapport est d’évaluer comment les variations spatiales et temporelles influencent la composition et la structure des communautés de Lépidoptères au Québec. La première hypothèse stipule que les limites des distributions des espèces se déplacent vers le nord au travers du temps. La deuxième hypothèse stipule que la richesse des espèces augmente au travers du temps. Finalement, la dernière hypothèse stipule que la distribution spatiale des lépidoptères au Québec est plus concentrée dans les régions urbaines. 
 
-
+\vspace{10pt}
 **Méthode**
 
 L’analyse des données a été réalisée à l’aide du logiciel RStudio. Dans un premier temps, des fichiers CSV, couvrant les années 1859 à 2023 et contenant des observations de lépidoptères, ont été assemblés afin de constituer une base de données complète. Par la suite, une phase de traitement a été effectuée, au cours de laquelle des fonctions ont été créées pour corriger, nettoyer et uniformiser les données. Différentes tables ont ensuite été extraites à partir de la base de données en sélectionnant seulement les données pertinentes aux analyses, à l’aide de requêtes formulées en langage SQL. Finalement, ces tables spécifiques ont permis de générer les figures répondant à nos hypothèses. Il est important de noter l’utilisation de ChatGPT afin d’assister dans la résolution des erreurs de programmation. 
 
 
-
+\vspace{10pt}
 **Résultats**
  
-## Résultats
-
 
 
 
@@ -46,16 +55,15 @@ Dans la Figure 1, il est possible d’observer que *Cercyonis pegala* est l’es
 
 
 
+
 Dans la Figure 2, on remarque une augmentation du nombre d’espèces de lépidoptères observées au fil des années. En effet, de 1860 à 1950, le nombre d’espèces a peu varié, et celui-ci a commencé à augmenter entre 1950 et 2000. Une augmentation drastique peut être aperçue à partir des années 2000, où le nombre d’espèces observées est passé d’environ 250 individus à plus de 1500. Cependant, entre les années 2000 et 2020, des fluctuations peuvent être observées, où le nombre d’espèces diminue à moins de 500 individus.
 
 ---
 
 
-
-
 Dans la Figure 3, il est possible d’observer la distribution de la richesse spécifique des lépidoptères au Québec en 2020. On remarque que l’endroit où le nombre d’espèces est le plus élevé, soit près de 600, est au nord-ouest de la province, près de 48°N et 80°W. Toutefois, des richesses spécifiques d’environ 500 espèces sont retrouvées à l’ouest, au sud et à l’est de la province. Il est également possible de remarquer qu’il y a une plus forte concentration dans le sud de la province, près du fleuve Saint-Laurent, que dans le nord de la province.
 
-
+\vspace{10pt}
 **Discussion **
 
 Il est possible de confirmer un déplacement spatial modéré vers le nord dans la distribution de certaines espèces de lépidoptères (Figure 1). Selon @BernabeRuiz2024, l’augmentation des températures peut favoriser une migration vers des latitudes plus élevées ainsi qu’une expansion des aires de répartition. En effet, le déplacement de certaines espèces vers des répartitions plus nordiques peut indiquer que les conditions environnementales y deviennent plus favorables, en réponse au réchauffement des habitats d’origine [@Haris2024]. Plusieurs facteurs peuvent expliquer cette migration, notamment les variations plus extrêmes des températures, l’irrégularité des précipitations entraînant des sécheresses et des inondations, ainsi que la dégradation des habitats [@Haris2024]. Cependant, différentes espèces de lépidoptères vont réagir de manières différentes face aux changements climatiques en fonction de leurs préférences alimentaires, de leurs exigences pour l’habitat et de leur relation avec les plantes hôtes [@Hussain2022]. Puisque la température est un facteur limitant les aires de répartition des plantes hôtes, ceci peut également limiter les aires de distribution des lépidoptères, indépendamment de leur tolérance au réchauffement climatique [@White2005]. Selon @Andrieux2016, la corrélation entre la température et la biodiversité pourrait entraîner le déplacement des aires de répartition de plusieurs espèces au Québec, ce qui pourrait expliquer en partie les tendances observées dans la Figure 1. 
@@ -67,8 +75,7 @@ Il est également possible de confirmer une augmentation du nombre d’espèces 
 Finalement, la Figure 3 démontre une forte richesse spécifique de lépidoptères concentrée dans le sud du Québec, près du fleuve Saint-Laurent. Cette distribution illustre l’influence des conditions écologiques locales sur la densité de lépidoptères. En effet, selon @White2005, la richesse spécifique des lépidoptères augmente dans les pâturages, par rapport aux zones agricoles autour des cultures. De plus, la fragmentation d’habitat semble être un facteur important pour la distribution des lépidoptères, car la richesse spécifique des espèces décroît lorsque la distance entre les habitats favorables augmente [@White2005]. Puisque les différentes espèces de lépidoptères ont différentes préférences quant à leur habitat, une hétérogénéité élevée des habitats favorise une richesse spécifique élevée [@White2005]. Selon @BernabeRuiz2024, 80% de la variance de richesse spécifique peut être expliquée par les changements climatiques, et ce phénomène est plus marqué dans les milieux ouverts, notamment en raison de l’abandon de pâturage et de la fauche. De plus, les lisières constituent des endroits privilégiés par les lépidoptères grâce à leur abondance de ressources alimentaires, la température et l’humidité [@Ruchin2023]. Ces différents facteurs écologiques peuvent expliquer la distribution concentrée de richesse spécifique de lépidoptères au sud du Québec, mais un facteur non-négligeable est le biais d’échantillonnage qui reflète le manque de données dans le nord de la province. 
 
 
-
-
+\vspace{10pt}
 
 **Conclusion**
 
@@ -79,6 +86,4 @@ En conclusion, la structure des communautés de lépidoptères au Québec est af
 
 
 
-\showmatmethods
-\showacknow
 \pnasbreak

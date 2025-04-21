@@ -8,7 +8,7 @@ espece <- function(x){
   taxo_BD <- x
 	res.1.espece <- (subset(taxo_BD, select = c(observed_scientific_name, valid_scientific_name, rank, vernacular_fr, kingdom, phylum, class, order, family, genus, species, itis_code)))
 	res.2.espece <- unique(res.1.espece)
-	write.csv(res.2.espece, file="espece.csv")
+	write.csv(res.2.espece, file="./tableaux_csv/espece.csv")
 	return(res.2.espece)
 }
 
@@ -17,7 +17,7 @@ date <- function(x){
   lepidopteres_final <- x
 	res.1.date <- subset(lepidopteres_final, select = c(year_obs, day_obs, time_obs, dwc_event_date))
 	res.2.date <- unique(res.1.date)
-	write.csv(res.2.date, file="date.csv")
+	write.csv(res.2.date, file="./tableaux_csv/date.csv")
 	return(res.2.date)
 }
 
@@ -26,7 +26,7 @@ source <- function(x){
   lepidopteres_final <- x
 	res.1.source <- subset(lepidopteres_final, select = c(original_source, creator, title, publisher, intellectual_rights, license, owner))
 	res.2.source <- unique(res.1.source)
-	write.csv(res.2.source, file="source.csv")
+	write.csv(res.2.source, file="./tableaux_csv/source.csv")
 	return(res.2.source)
 }
 
@@ -35,7 +35,7 @@ latitude <- function(x){
   lepidopteres_final <- x
 	res.1.latitude <- subset(lepidopteres_final, select = c(lat))
 	res.2.latitude <- unique(res.1.latitude)
-	write.csv(res.2.latitude, file="latitude.csv")
+	write.csv(res.2.latitude, file="./tableaux_csv/latitude.csv")
 	return(res.2.latitude)
 }
 
@@ -44,7 +44,7 @@ longitude <- function(x){
   lepidopteres_final <- x
 	res.1.longitude <- subset(lepidopteres_final, select = c(lon))
 	res.2.longitude <- unique(res.1.longitude)
-	write.csv(res.2.longitude, file="longitude.csv")
+	write.csv(res.2.longitude, file="./tableaux_csv/longitude.csv")
 	return(res.2.longitude)
 }
 
@@ -53,7 +53,7 @@ abbondance <- function(x){
   lepidopteres_final <- x
 	res.1.abbondance <- subset(lepidopteres_final, select = c(obs_variable))
 	res.2.abbondance <- unique(res.1.abbondance)
-	write.csv(res.2.abbondance, file="abbondance.csv")
+	write.csv(res.2.abbondance, file="./tableaux_csv/abbondance.csv")
 	return(res.2.abbondance)
 }
 
@@ -62,7 +62,7 @@ observation <- function(x){
   lepidopteres_final <- x
 	lepidopteres_final$id_observation <- 1:nrow(lepidopteres_final)
 	res.1.observation <- subset(lepidopteres_final, select = c(observed_scientific_name, dwc_event_date, title, obs_variable, lat, lon, id_observation))
-	write.csv(res.1.observation, file="observation.csv")
+	write.csv(res.1.observation, file="./tableaux_csv/observation.csv")
 	return(res.1.observation)
 }
 

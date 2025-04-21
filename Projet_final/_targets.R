@@ -1,6 +1,6 @@
-setwd("C:/Users/marbe/Desktop/UdeS Hiver 2025/Méthodes en écologie computationnelle/BIO500_Lepidopteres_MAJM/Projet_final")
+setwd("C:/Users/alex/OneDrive - USherbrooke/École/Hiver_2025/Écologie Computationnelle/BIO500_Lepidopteres_MAJM/Projet_final")
 
-#Dépendance
+#installation des librairies nécessaires
 library(targets)
 library(tarchetypes)
 library(rmarkdown)

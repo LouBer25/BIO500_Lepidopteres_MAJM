@@ -6,7 +6,7 @@
 ####Création du dataframe espece
 espece <- function(x){
   taxo_BD <- x
-	res.1.espece <- (subset(taxo_BD, select = c(observed_scientific_name, valid_scientific_name, rank, vernacular_fr, kingdom, phylum, class, order, family, genus, species, itis_code)))
+	res.1.espece <- subset(taxo_BD, select = c(observed_scientific_name, valid_scientific_name, rank, vernacular_fr, kingdom, phylum, class, order, family, genus, species, itis_code))
 	res.2.espece <- res.1.espece %>%
            distinct(observed_scientific_name, .keep_all = TRUE)
 	write.csv(res.2.espece, file="./tableaux_csv/espece.csv")

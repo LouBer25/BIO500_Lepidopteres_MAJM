@@ -1,5 +1,5 @@
 # 1) Set Working Directory au dossier "BIO500_Lepidopteres_MAJM/Projet_final"
-setwd("C:/Users/alex/OneDrive - USherbrooke/École/Hiver_2025/Écologie Computationnelle/BIO500_Lepidopteres_MAJM/Projet_final")
+setwd(chemin_acces)
 
 # 2) Sélectionner tout le code (Ctrl+A) et exécuter. Enregistrer les modifications, puis écrire dans la console tar_make() et exécuter.
 #installation des librairies nécessaires

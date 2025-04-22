@@ -26,5 +26,5 @@ graph_latitude_annee <- function(requete) {
   #Enregistrer le graphique en png  
   chemin_latitude_annee <- ("./scripts/Rapport_lepidopteres/graphique_latitude.png")
   ggsave(chemin_latitude_annee, plot = graphique_latitude, width = 8, height = 8)
- return(chemin_latitude_annee)
+ return(graphique_latitude)
 }

@@ -64,5 +64,5 @@ graph_carte <- function(requete) {
     #Enregistrer le graphique en png  
     chemin_carte <- ("./scripts/Rapport_lepidopteres/graphique_carte.png")
     ggsave(chemin_carte, plot = graphique_carte, width = 10, height = 8)
-  return(chemin_carte)
+  return(graphique_carte)
 }

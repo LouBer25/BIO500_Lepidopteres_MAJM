@@ -12,5 +12,5 @@ graph_richesse_specifique <- function(requete) {
     #Enregistrer le graphique en png 
     chemin_richesse_specifique <- ("./scripts/Rapport_lepidopteres/graphique_richesse.png")
     ggsave(chemin_richesse_specifique, plot = graphique_richesse, width = 8, height = 8)
-  return(chemin_richesse_specifique)
+  return(graphique_richesse)
 }

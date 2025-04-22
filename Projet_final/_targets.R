@@ -1,5 +1,5 @@
 # 1) Set Working Directory au dossier "BIO500_Lepidopteres_MAJM/Projet_final"
-setwd("C:/Users/marbe/Desktop/UdeS Hiver 2025/Méthodes en écologie computationnelle/BIO500_Lepidopteres_MAJM/Projet_final")
+setwd("C:/Users/Alex/Desktop/retest/Projet_final")
 
 # 2) Sélectionner tout le code (Ctrl+A) et exécuter. Enregistrer les modifications, puis écrire dans la console tar_make() et exécuter.
 #installation des librairies nécessaires
@@ -31,18 +31,6 @@ list(
  tar_target(
    name = requete,
    command = creation_SQL(donnee)
- ),
- tar_target(
-   name = richesse_specifique,
-   command = graph_richesse_specifique(requete)
- ),
- tar_target(
-   name = latitude_annee,
-   command = graph_latitude_annee(requete)
- ),
- tar_target(
-   name = carte,
-   command = graph_carte(requete)
  ),
  tar_render(
    name = rapport_lepidopteres,

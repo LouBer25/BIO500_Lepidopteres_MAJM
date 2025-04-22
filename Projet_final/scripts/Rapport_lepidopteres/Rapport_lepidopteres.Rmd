@@ -49,8 +49,10 @@ L’analyse des données a été réalisée à l’aide du logiciel RStudio. Dan
 
 
 ```{r fig1, fig.cap="Variation des latitudes du territoire de quatre espèces de lépidoptères (Cercyonis pegala, Colias philodice, Pieris rapae et Poanes hobomok) par période de 20 ans de 1860 à 2020.", fig.pos="H", echo=FALSE, out.width="80%", fig.align='center'}
-#knitr::include_graphics("./scripts/Rapport_lepidopteres/graphique_latitude.png")
 
+requete <- tar_read(requete)
+source("./scripts/21_creation_graphique_latitude_annee.R")
+  graph_latitude_annee (requete)
 ```
 Dans la Figure 1, il est possible d’observer que *Cercyonis pegala* est l’espèce où les latitudes de son territoire ont le plus varié entre 2000 et 2020. De plus, on remarque que, pour les quatre espèces, les latitudes entre 2000 et 2020 ont augmenté vers le nord. *Colias philodice* est la seule espèce avec une grande variation dans les latitudes de son territoire dans les années 1880.
 
@@ -59,11 +61,20 @@ Dans la Figure 1, il est possible d’observer que *Cercyonis pegala* est l’es
 
 
 ```{r fig2,fig.cap=" Variation du nombre d’espèces de lépidoptères observées selon les années",fig.pos = "H", echo=FALSE, out.width="80%", fig.align='center'}
-#knitr::include_graphics("./scripts/Rapport_lepidoperes/graphique_richesse.png")
+requete <- tar_read(requete) 
+  richesse_specifique <- requete[[1]]
+  graphique_richesse <- ggplot(richesse_specifique, aes(x = annee, y = nombre_especes)) +
+    geom_line(color = "blue") + 
+    #Afficher titres des colonnes
+    labs(x = "Année", 
+         y = "Nombre d'espèces") +
+    theme_minimal() +
+    theme(axis.text.x = element_text(angle = 45, hjust = 1))
+    #Enregistrer le graphique en png 
+    chemin_richesse_specifique <- ("./scripts/Rapport_lepidopteres/graphique_richesse.png")
+    ggsave(chemin_richesse_specifique, plot = graphique_richesse, width = 8, height = 8)
 
 ```
-
-![](graphique_richesse.png)
 
 Dans la Figure 2, on remarque une augmentation du nombre d’espèces de lépidoptères observées au fil des années. En effet, de 1860 à 1950, le nombre d’espèces a peu varié, et celui-ci a commencé à augmenter entre 1950 et 2000. Une augmentation drastique peut être aperçue à partir des années 2000, où le nombre d’espèces observées est passé d’environ 250 individus à plus de 1500. Cependant, entre les années 2000 et 2020, des fluctuations peuvent être observées, où le nombre d’espèces diminue à moins de 500 individus.
 
@@ -72,7 +83,70 @@ Dans la Figure 2, on remarque une augmentation du nombre d’espèces de lépido
 
 
 ```{r fig3, fig.cap= "Distribution de la richesse spécifique des lépidoptères au Québec en 2020",fig.pos="H", echo=FALSE, out.width="80%", fig.align='center'}
-#knitr::include_graphics("./scripts/Rapport_lepidopteres/graphique_carte.png")
+requete <- tar_read(requete)
+  carte <- requete[[3]]
+  # Vérification des colonnes afin d'éviter des bugs
+  if (!all(c("latitude", "longitude", "nombre_especes") %in% colnames(carte))) {
+    stop("Le tableau 'carte' doit contenir les colonnes : latitude, longitude, nombre_especes")
+  }
+  
+  # Regrouper le nombre d'espèce par secteur
+  df <- carte %>%
+    mutate(
+      lat_arrondi = floor(latitude),
+      lon_arrondi = floor(longitude)
+    ) %>%
+    group_by(lat_arrondi, lon_arrondi) %>%
+    summarise(total_especes = sum(nombre_especes), .groups = "drop")
+  
+  # Transformer en donnée géospatial
+  df_sf <- st_as_sf(df, coords = c("lon_arrondi", "lat_arrondi"), crs = 4326)
+  
+  # Acquisition des données de contour du Canada
+  canada <- ne_states(country = "Canada", returnclass = "sf")
+  
+  # Extraire seulement le Québec des données Canada
+  quebec <- canada %>% filter(name_en == "Quebec")
+  
+  # Création de la carte avec ggplot
+  graphique_carte <- ggplot() +
+    # Ajouter les contours du Québec au graphique afin d'obetenir un visuel graphique des données
+    geom_sf(data = quebec, fill = NA, color = "darkblue", size = 1.2) +
+    
+    # Points de données (richesse spécifique) avec taille et couleur
+    geom_sf(data = df_sf, aes(size = total_especes, color = total_especes), alpha = 0.7) +
+    
+    # Ajouter les couleurs en fonction du nombre d'espèce
+    scale_color_viridis(option = "C", direction = 1, name = "Nombre d'espèces") +
+    
+    # Range des tailles des données
+    scale_size_continuous(range = c(2, 8), name = "Nombre d'espèces") +
+    
+    # Titres et légendes
+    labs(
+      subtitle = "Richesse spécifique par case de 1°",
+      color = "Richesse\nSpécifique",
+      size = "Nombre\nD'espèces"
+    ) +
+    
+    #Personaliser le fond et la grille pour un visuel plus original
+    theme_minimal() +
+    theme(
+      plot.title = element_text(size = 16, face = "bold", color = "darkblue", hjust = 0.5),
+      plot.subtitle = element_text(size = 12, face = "italic", color = "gray40", hjust = 0.5),
+      plot.caption = element_text(size = 10, color = "gray40", hjust = 1),
+      legend.position = "bottom",
+      legend.title = element_text(face = "bold"),
+      legend.text = element_text(size = 10),
+      axis.text = element_text(size = 10, color = "gray40")
+    ) +
+    
+    # Afficher seulement la partie du Québec selon les données
+    coord_sf(xlim = c(-81, -56), ylim = c(44, 54), expand = FALSE)
+    
+    #Enregistrer le graphique en png  
+    chemin_carte <- ("./scripts/Rapport_lepidopteres/graphique_carte.png")
+    ggsave(chemin_carte, plot = graphique_carte, width = 10, height = 8)
 
 ```
 

@@ -60,5 +60,9 @@ graph_carte <- function(requete) {
     
     # Afficher seulement la partie du Québec selon les données
     coord_sf(xlim = c(-81, -56), ylim = c(44, 54), expand = FALSE)
-    ggsave("./scripts/Rapport_lepidopteres/graphique_carte.png", plot = graphique_carte, width = 10, height = 8)
+    
+    #Enregistrer le graphique en png  
+    chemin_carte <- ("./scripts/Rapport_lepidopteres/graphique_carte.png")
+    ggsave(chemin_carte, plot = graphique_carte, width = 10, height = 8)
+  return(chemin_carte)
 }

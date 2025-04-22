@@ -49,7 +49,7 @@ L’analyse des données a été réalisée à l’aide du logiciel RStudio. Dan
 
 
 ```{r fig1,fig.cap="Variation des latitudes du territoire de quatre espèces de lépidoptères (Cercyonis pegala, Colias philodice, Pieris rapae et Poanes hobomok) par période de 20 ans de 1860 à 2020.", fig.pos="H", echo=FALSE, out.width="80%", fig.align='center'}
-knitr::include_graphics("graphique_latitude.png")
+knitr::include_graphics("./scripts/Rapport_lepidopteres/graphique_latitude.png")
 
 ```
 Dans la Figure 1, il est possible d’observer que *Cercyonis pegala* est l’espèce où les latitudes de son territoire ont le plus varié entre 2000 et 2020. De plus, on remarque que, pour les quatre espèces, les latitudes entre 2000 et 2020 ont augmenté vers le nord. *Colias philodice* est la seule espèce avec une grande variation dans les latitudes de son territoire dans les années 1880.
@@ -59,7 +59,7 @@ Dans la Figure 1, il est possible d’observer que *Cercyonis pegala* est l’es
 
 
 ```{r fig2, fig.cap=" Variation du nombre d’espèces de lépidoptères observées selon les années",fig.pos = "H", echo=FALSE, out.width="80%", fig.align='center'}
-knitr::include_graphics("graphique_richesse.png")
+knitr::include_graphics("./scripts/Rapport_lepidoperes/graphique_richesse.png")
 
 ```
 
@@ -71,7 +71,7 @@ Dans la Figure 2, on remarque une augmentation du nombre d’espèces de lépido
 
 
 ```{r fig3, fig.cap= "Distribution de la richesse spécifique des lépidoptères au Québec en 2020",fig.pos="H", echo=FALSE, out.width="80%", fig.align='center'}
-knitr::include_graphics("graphique_carte.png")
+knitr::include_graphics("./scripts/Rapport_lepidopteres/graphique_carte.png")
 
 ```
 

@@ -10,5 +10,7 @@ graph_richesse_specifique <- function(requete) {
     theme_minimal() +
     theme(axis.text.x = element_text(angle = 45, hjust = 1))
     #Enregistrer le graphique en png 
-    ggsave("./scripts/Rapport_lepidopteres/graphique_richesse.png", plot = graphique_richesse, width = 8, height = 8)
+    chemin_richesse_specifique <- ("./scripts/Rapport_lepidopteres/graphique_richesse.png")
+    ggsave(chemin_richesse_specifique, plot = graphique_richesse, width = 8, height = 8)
+  return(chemin_richesse_specifique)
 }

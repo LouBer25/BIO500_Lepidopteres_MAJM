@@ -1,12 +1,12 @@
 # 1) Set Working Directory au dossier "BIO500_Lepidopteres_MAJM/Projet_final"
-setwd(chemin_acces)
+setwd("C:/Users/marbe/Desktop/UdeS Hiver 2025/Méthodes en écologie computationnelle/BIO500_Lepidopteres_MAJM/Projet_final")
 
 # 2) Sélectionner tout le code (Ctrl+A) et exécuter. Enregistrer les modifications, puis écrire dans la console tar_make() et exécuter.
 #installation des librairies nécessaires
 library(targets)
 library(tarchetypes)
 library(rmarkdown)
-tar_option_set(packages = c("dplyr", "ritis", "purrr", "furrr", "future", "readr", "RSQLite", "terra", "ggplot2", "viridis", "ggspatial", "maptiles", "rnaturalearth", "rnaturalearthdata", "sf", "devtools"))
+tar_option_set(packages = c("dplyr", "ritis", "purrr", "furrr", "future", "readr", "RSQLite", "terra", "ggplot2", "viridis", "ggspatial", "maptiles", "rnaturalearth", "rnaturalearthdata", "sf", "devtools", "tinytex"))
 
 #Script R
 source("./scripts/1_fonction_BD.R")
